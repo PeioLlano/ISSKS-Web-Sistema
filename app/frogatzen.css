@@ -1,0 +1,12 @@
+body {
+    color: #666666;
+    font-size: 25px;
+    font-family: 'Noto Serif', sans-serif;;
+    line-height: 1.80857;
+    font-weight: normal;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 30px
+}

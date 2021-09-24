@@ -13,18 +13,14 @@
 
 
 
-//$query = mysqli_query($conn, "SELECT * FROM usuarios")
-$query = mysqli_query($conn, "SELECT * FROM bezeroa")
+$query = mysqli_query($conn, "SELECT * FROM usuarios")
    or die (mysqli_error($conn));
 
 while ($row = mysqli_fetch_array($query)) {
   echo
    "<tr>
-    <td>{$row['izenAbizenak']}</td>
-    <td>{$row['NAN']}</td>
-    <td>{$row['telefonoa']}</td>
-    <td>{$row['jaiotzeData']}</td>
-    <td>{$row['email']}</td>
+    <td>{$row['id']}</td>
+    <td>{$row['nombre']}</td>
    </tr>";
    
 
