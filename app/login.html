@@ -1,0 +1,51 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="frogatzen.css">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<title>
+			Frogak
+		</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-default"> <!--Navigation bar-a sortzeko-->
+			<div class="container-fluid"> <!--Y si se trata de un contenedor fluido luego utilizamos la clase container-fluid-->
+			  <div class="navbar-header"> <!--Navigation bar-aren goiburua-->
+				<a class="navbar-brand" href="#">Gure Polikiroldegia</a>
+			  </div>
+			  <ul class="nav navbar-nav"> <!--Lista bat sortzeko navigation bar motakoa-->
+				<!--li-rekin barruan joango direnak-->
+				<li class="active"><a href="index.html">Home</a></li><!--active jartzen da horretan zaudela esateko-->
+				<li><a href="erregistratu.html">Erregistratu</a></li>
+				<li><a href="login.html">Log In</a></li>
+				<li><a href="guriBuruz.html">Guri buruz</a></li>
+			  </ul>
+			</div>
+		</nav>
+		<!--<form action="helburua.html">
+			Izen-abizenak: <input type="text" name="izena" placeholder="Zure izen-abizenak sartu"><br>
+			NAN: <input type="text" name="NAN" placeholder="Zure NAN-a sartu"><br>
+			Telefonoa: <input type="text" name="tlf" placeholder="Zure telefonoa sartu"><br>
+			Jaiotze-data: <input type="text" name="jaiotze" placeholder="Zure jaiotze data sartu"><br>
+			Email: <input type="text" name="email" placeholder="Zure emaila sartu"><br>
+			<input type="submit" value="Bidali">
+			<input type="reset" value="Ezabatu"><br><br>
+		</form>-->
+		<div class="jumbotron text-center">
+			<h1>Ez dakit zer Polikiroldegia</h1> 
+			<p>Soilik kirolarientzako</p> 
+			<form class="form-inline">
+				<div class="input-group">
+				Izen-abizenak: <input type="text" name="izena" size="50" placeholder="Zure izen-abizenak sartu"required><br>
+				Email: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<input type="email" name="email" size="50" placeholder="Zure emaila sartu"><br>
+				<br/>
+				<button type="reset" class="btn btn-danger">Ezabatu</button>
+				<button type="sumbit" class="btn btn-danger">Izena eman</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
