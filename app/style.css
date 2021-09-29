@@ -48,7 +48,7 @@ nav image  {
 .nav-links ul li::after{ /* Egongo diren esteken gainetik pasatzean azpimarra dadin*/
     width: 0%;
     height: 2px;
-    background:grey;
+    background:red;
     display: block;
     margin: auto;
     transition: 0.5s;
