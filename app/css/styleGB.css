@@ -6,9 +6,11 @@
 
 /* Hau background-erako erabiltzen da*/
 .header{ 
-    min-height: 100vh;
+    min-height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7),url(images/background.jpg));
+    /*background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7),url(images/background.jpg));
+    */
+    /*background-color: black;*/
     background-position: center;
     background-size: cover;
     position: relative;
@@ -17,8 +19,10 @@
 /* CSS ETA NAVBAR-EKO STYLE*/
 
 nav{
-    display: flex;
-    padding: 2% 6%;
+    display: flex; /* por ejemplo el detalle de que pasa cuando display: flex 
+    es declarado y definido en la especificacion de Modelo Flexible de Caja */
+    padding: 2% 6%; /* La propiedad CSS padding establece el espacio de relleno
+     requerido por todos los lados de un elemento*/
     justify-content: space-between;
     align-items: center;
 }
@@ -48,7 +52,7 @@ nav image  {
 .nav-links ul li::after{ /* Egongo diren esteken gainetik pasatzean azpimarra dadin*/
     width: 0%;
     height: 2px;
-    background:red;
+    background:grey;
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -75,4 +79,29 @@ nav image  {
 .text-box p{
     margin: 10px 0px 40px; /* 10px from the top, 0px from the left and right an 40 pixel from the bottom*/ 
     font-size: 14px;
+}
+
+/* Beste atala */
+
+.course{
+    min-height: 30vh;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    background-color: grey;
+}
+
+.course h1{
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.course p{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
 }
