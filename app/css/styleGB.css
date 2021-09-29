@@ -66,7 +66,7 @@ nav image  {
     width: 90%;
     color: grey;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
@@ -81,27 +81,99 @@ nav image  {
     font-size: 14px;
 }
 
-/* Beste atala */
+/* klaseak atala */
 
-.course{
-    min-height: 30vh;
+.klaseak{
+    min-height: 60vh;
     width: 100%;
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 50px;
     background-color: grey;
 }
 
-.course h1{
+.klaseak h1{
     font-size: 36px;
     font-weight: 600;
     color: #fff;
 }
 
-.course p{
+.klaseak p{
     color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.klaseKutxak{
+    margin-top: 3%;
+    min-height: 17vh;
+    margin-right: 60px;
+    margin-left: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.kutxa{
+    flex-basis: 31%;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    margin: 5px 20px 5px;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0,5s;
+}
+
+h3{
+    text-align: center;
+    min-height: 4vh;
+    font-weight: 600;
+    margin: 2px 0;
+}
+
+.kutxa:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+
+/* kontatua atala */
+
+.kontaktua{
+    min-height: 30vh;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    background-color: white;
+}
+
+.kontaktua h1{
+    font-size: 36px;
+    font-weight: 600;
+    color: grey;
+}
+
+.kontaktua p{
+    color: grey;
     font-size: 14px;
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
+}
+
+/* Behekoa atala */
+
+.behekoa{
+    width: 100%;
+    text-align: center;
+    padding: auto;
+}
+
+.behekoa h4{
+    font-size: small;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: grey;
 }
