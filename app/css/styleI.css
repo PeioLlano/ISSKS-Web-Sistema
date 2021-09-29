@@ -6,9 +6,10 @@
 
 /* Hau background-erako erabiltzen da*/
 .header{ 
-    min-height: 45vh;
+    min-height: 50vh;
     width: 100%;
-    /*background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.publicdomainpictures.net%2Fes%2Fview-image.php%3Fimage%3D208949%26picture%3Dfondo-azul-de-la-textura&psig=AOvVaw2PsOidQoBigJbtid0XrfzR&ust=1633034272145000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCOidlPOEpfMCFQAAAAAdAAAAABAO");*/
+    /*background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7),url(images/background.jpg));
+    */
     /*background-color: black;*/
     background-position: center;
     background-size: cover;
@@ -61,13 +62,11 @@ nav image  {
     width: 100%;
 }
 
-/* izenburu atala */
-
 .text-box{
     width: 90%;
     color: grey;
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
@@ -82,24 +81,24 @@ nav image  {
     font-size: 14px;
 }
 
-/* historia atala */
+/* klaseak atala */
 
-.historia{
+.klaseak{
     min-height: 60vh;
     width: 100%;
     margin: auto;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 50px;
     background-color: grey;
 }
 
-.historia h1{
+.klaseak h1{
     font-size: 36px;
     font-weight: 600;
     color: #fff;
 }
 
-.historia p{
+.klaseak p{
     color: #fff;
     font-size: 18px;
     font-weight: 300;
@@ -107,53 +106,7 @@ nav image  {
     padding: 10px;
 }
 
-.irudiTextua{
-    flex-basis: 42%;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    margin-right: 15px;
-    overflow: hidden;
-    width: 100%;
-    text-align: justify;
-}
-
-.irudiTextua img{
-    width: 22%;
-    float: left;
-    margin-left: 35px;
-    margin-right: 15px;
-}
-.irudiTextua p{
-    margin-left: 25px;
-    margin-right: 45px;
-}
-
-/* etorkizunekoLerroak atala */
-
-.etorkizunekoLerroak{
-    min-height: 40vh;
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    padding-top: 30px;
-    background-color: white;
-}
-
-.etorkizunekoLerroak h1{
-    font-size: 36px;
-    font-weight: 600;
-    color: grey;
-}
-
-.etorkizunekoLerroak p{
-    color: grey;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 22px;
-    padding: 10px;
-}
-
-.karratua{
+.klaseKutxak{
     margin-top: 3%;
     min-height: 17vh;
     margin-right: 60px;
@@ -162,23 +115,65 @@ nav image  {
     justify-content: space-between;
 }
 
-.karratuTxikia{
-    flex-basis: 45%;
-    min-height: 15vh;
-    background: grey;
+.kutxa{
+    flex-basis: 31%;
+    background: white;
+    border-radius: 10px;
     margin-bottom: 5%;
     margin: 5px 20px 5px;
     padding: 20px 12px;
-    box-sizing: content-box;
-    width: 100%;
+    box-sizing: border-box;
     transition: 0,5s;
-    color: white;
 }
 
-.karratuTxikia p{
-    color: white;
+h3{
+    text-align: center;
+    min-height: 4vh;
+    font-weight: 600;
+    margin: 2px 0;
 }
 
-.karratuTxikia:hover{
+.kutxa:hover{
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+
+/* kontatua atala */
+
+.kontaktua{
+    min-height: 30vh;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    background-color: white;
+}
+
+.kontaktua h1{
+    font-size: 36px;
+    font-weight: 600;
+    color: grey;
+}
+
+.kontaktua p{
+    color: grey;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+/* Behekoa atala */
+
+.behekoa{
+    width: 100%;
+    text-align: center;
+    padding: auto;
+}
+
+.behekoa h4{
+    font-size: small;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: grey;
 }
