@@ -1,52 +1,39 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	<link rel="stylesheet" type="text/css" href="frogatzen.css">
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		<title>
-			JulKirolPe Polikiroldegia
-		</title>
-		<link rel="icon" type="image/png" href="https://img.icons8.com/offices/16/000000/sport.png" />	
-	</head>
-	<body>
-		<nav class="navbar navbar-default"> <!--Navigation bar-a sortzeko-->
-			<div class="container-fluid"> <!--Y si se trata de un contenedor fluido luego utilizamos la clase container-fluid-->
-			  <div class="navbar-header"> <!--Navigation bar-aren goiburua-->
-				<a class="navbar-brand" href="#">Gure Polikiroldegia</a>
-			  </div>
-			  <ul class="nav navbar-nav"> <!--Lista bat sortzeko navigation bar motakoa-->
-				<!--li-rekin barruan joango direnak-->
-				<li><a href="index.html">Home</a></li>
-				<li><a href="erregistratu.html">Erregistratu</a></li>
-				<li class="active"><a href="login.html">Log In</a></li>
-				<li><a href="guriBuruz.html">Guri buruz</a></li>
-			  </ul>
-			</div>
-		</nav>
-		<!--<form action="helburua.html">
-			Izen-abizenak: <input type="text" name="izena" placeholder="Zure izen-abizenak sartu"><br>
-			NAN: <input type="text" name="NAN" placeholder="Zure NAN-a sartu"><br>
-			Telefonoa: <input type="text" name="tlf" placeholder="Zure telefonoa sartu"><br>
-			Jaiotze-data: <input type="text" name="jaiotze" placeholder="Zure jaiotze data sartu"><br>
-			Email: <input type="text" name="email" placeholder="Zure emaila sartu"><br>
-			<input type="submit" value="Bidali">
-			<input type="reset" value="Ezabatu"><br><br>
-		</form>-->
-		<div class="jumbotron text-center">
-			<h1>Ez dakit zer Polikiroldegia</h1> 
-			<p>Soilik kirolarientzako</p> 
-			<form class="form-inline">
-				<div class="input-group">
-				Email: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;<input type="email" name="email" size="50" placeholder="Zure emaila sartu"><br>
-				Pasahitza: &nbsp;&nbsp; &nbsp;&nbsp;<input type="password" name="Pasahitza" size="50" placeholder="Zure pasahitza sartu"><br>
-				<br/>
-				<button type="reset" class="btn btn-danger">Ezabatu</button>
-				<button type="sumbit" class="btn btn-danger">Izena eman</button>
-				</div>
+    <head>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title>JulKirolPe Polikiroldegia</title>
+        <link rel="stylesheet" href="css/styleE&LI.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <!--<a href="index.html"><img src="images/logo.png" ></a>-->
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="erregistratu.html">Erregistratu</a></li>
+                        <li><a href="login.html">Log In</a></li>
+                        <li><a href="guriBuruz.html">Guri buruz</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="text-box">
+                <h1>Log In</h1>
+                <p> Sartu zure datuak Log In-a betetzeko.</p>
+            </div>
+        </section>
+        <section class="erregistroa">
+			<form class="formularioa" id="form">
+				<input class="textBoxBakoitza" type="email" name="email"  placeholder="Zure emaila sartu"><br>
+				<input class="textBoxBakoitza" type="password" name="pasahitza"  placeholder="Zure pasahitza sartu"><br>
+				<button type="reset" class="botoia">Ezabatu</button>
+				<button onclick="" class="botoia">Sartu </button>
 			</form>
-		</div>
+		</section>
 	</body>
 </html>
