@@ -84,7 +84,7 @@ nav image  {
 /* klaseak atala */
 
 .klaseak{
-    min-height: 60vh;
+    min-height: 63vh;
     width: 100%;
     margin: auto;
     text-align: center;
@@ -126,11 +126,17 @@ nav image  {
     transition: 0,5s;
 }
 
-h3{
+.kutxa p{
+    color: grey;
+    font-size: 16px;
+}
+
+.kutxa h3{
+    color: grey;
     text-align: center;
-    min-height: 4vh;
     font-weight: 600;
-    margin: 2px 0;
+    font-size: 18px;
+    line-height: 20px;
 }
 
 .kutxa:hover{
@@ -141,7 +147,7 @@ h3{
 
 .kontaktua{
     min-height: 30vh;
-    width: 100%;
+    width: 80%;
     margin: auto;
     text-align: center;
     padding-top: 100px;
@@ -156,7 +162,7 @@ h3{
 
 .kontaktua p{
     color: grey;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
