@@ -1,5 +1,4 @@
 <?php
-  echo '<h1>Yeah, it works!<h1>';
   // phpinfo();
   $hostname = "db";
   $username = "admin";
@@ -18,15 +17,18 @@
   $email = $_POST['email'];
   $pasahitza = $_POST['pasahitza'];
 
-  //echo "<h1>Welcome to {$izena}</h1>"
+  /*if ( isset( $_POST['izena'] ) ) { // retrieve the form data by using the element's name attributes value as key $firstname = $_POST['firstname']; $lastname = $_POST['lastname']; // display the results
+    echo '<h3>Form POST Method</h3>'; 
+    echo '<b>Zure datuak hurrengoak dira</b>: <br>' . $izena . '<br> ' . $nan . '<br> ' . $tlf . '<br> ' . $jaiotze . '<br> ' . $email. '<br> ' . $pasahitza ;
+  }*/
 
-  //$query = mysqli_query($conn, "INSERT INTO bezeroa('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza')");
-  $query = mysqli_query($conn, "SELECT * FROM bezeroa");
+  $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza'); ");
+  //$query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('froga', 'froga2', '12', '2021-10-07', '12', ''); ");
 
   if(!$query){
-    echo"Errore bat egon da";
+    echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
   }
   else{
-      echo"datos guardado correctamente","<a href='../index.html'>Volver</a>";
+      echo"datos guardado correctamente","<meta http-equiv='refresh' content='0; url=../logeatuta.html' />";
   }
 ?>
