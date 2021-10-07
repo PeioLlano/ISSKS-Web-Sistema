@@ -1,30 +1,29 @@
  function datuakKonprobatu() {
-  if(!izenaKonprobatu(document.getElementsByName('izena').value)) {
+  if(!izenaKonprobatu(document.getElementById('izena').value)) {
     return;
   }
-  if(!nanKonprobatu(document.getElementsByName('NAN').value)){
+  if(!nanKonprobatu(document.getElementById('nan').value)){
     return;
   }
-  if(!tlfKonprobatu(document.getElementsByName('tlf').value)){
+  if(!tlfKonprobatu(document.getElementById('tlf').value)){
     return;
   }
-  if(!dataKonprobatu(document.getElementsByName('jaiotze').value)){
+  if(!dataKonprobatu(document.getElementById('jaiotze').value)){
     return;
   }
-  if(!tlfKonprobatu(document.getElementsByName('email').value)){
+  if(!emailaKonprobatu(document.getElementById('email').value)){
     return;
   }
-  if(document.getElementsByName('pasahitza')==document.getElementsByName('repPasahitza')){
+  if(document.getElementById('pasahitza').value != document.getElementById('repPasahitza').value){
     alert('Sartutako pasahitzak ez dira berdinak.');
     return;
   }
-  alert('Datu guztiak zuzen');
-  this.submit();
+  document.getElementById('form').submit();
 }
 
 
 function izenaKonprobatu(pIzena) {
-  if(izena.length == 0) {
+  if(pIzena.length == 0) {
     alert('Ez duzu izenik sartu');
     return false;
   }
@@ -70,7 +69,10 @@ function dataKonprobatu(pData) {
 }
 
 function tlfKonprobatu(pTlf) {
-  if(pTlf.length == 9 && pTlf.isInteger()) {
+  var formatua;
+  formatua = /^\d{9}$/;
+
+  if (formatua.test(pTlf)) {
     return true;
   }
   else{
@@ -80,11 +82,19 @@ function tlfKonprobatu(pTlf) {
 }
 
 function emailaKonprobatu(pEmail) {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(pEmail)){
+  var formatua;
+  formatua = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+  if (formatua.test(pEmail)){
    return true;
   } else {
    alert("Email helbide okerra sartu duzu.");
    return false;
   }
 }
+
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+
   
