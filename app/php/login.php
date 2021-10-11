@@ -1,5 +1,5 @@
 <?php
-    echo"<h1> PHP-an sartu da </h1>";
+  //echo"<h1> PHP-an sartu da </h1>";
   // phpinfo();
   $hostname = "db";
   $username = "admin";
@@ -14,19 +14,18 @@
   $email = $_POST['email'];
   $pasahitza = $_POST['pasahitza'];
 
-  if ( isset( $_POST['izena'] ) ) { // retrieve the form data by using the element's name attributes value as key $firstname = $_POST['firstname']; $lastname = $_POST['lastname']; // display the results
-    echo '<h3>Form POST Method</h3>'; 
-    echo '<b>Zure datuak hurrengoak dira</b>: <br>' . $email. '<br> ' . $pasahitza ;
-  }
-
   $query = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `email` = '$email' AND `pasahitza` = '$pasahitza' ; ");
+  $ilara = mysqli_num_rows($query);
 
-  if(!mysql_fetch_array ($query)){
-    echo"existe una cuenta","<meta http-equiv='refresh' content='0; url=../logeatuta.html' />";
+  if($ilara){
+    echo"<meta http-equiv='refresh' content='0; url=../logeatuta.html' />";
   }
   else{
-    echo"Ez da contu hori existitzen.";
+    //echo"<meta http-equiv='refresh' content='0; url=../logIn.html' />";
+    echo"<script language='javascript'>alert('Saio-hasiera baliogabea, saiatu berriz, mesedez.');</script>";
     //echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
   }
+
+  mysqli_free_result($query);
 
 ?>
