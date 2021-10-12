@@ -21,14 +21,21 @@
     echo '<h3>Form POST Method</h3>'; 
     echo '<b>Zure datuak hurrengoak dira</b>: <br>' . $izena . '<br> ' . $nan . '<br> ' . $tlf . '<br> ' . $jaiotze . '<br> ' . $email. '<br> ' . $pasahitza ;
   }*/
-
-  $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza'); ");
-  //$query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('froga', 'froga2', '12', '2021-10-07', '12', ''); ");
-
-  if(!$query){
-    echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
+  
+  //NAN bat dagoneko sartuta dagoen begiratzeko
+  $nanKonprobaketa = mysqli_query($conn, "SELECT COUNT(*) FROM `bezeroa` WHERE `NAN`=$nan; ");
+  if($nanKonprobaketa == 1){
+    $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza'); ");
+    //$query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('froga', 'froga2', '12', '2021-10-07', '12', ''); ");
+    if(!$query){
+      echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
+    }
+    else{
+        echo"datos guardado correctamente","<meta http-equiv='refresh' content='10; url=../logeatuta.html' />";
+    }
   }
   else{
-      echo"datos guardado correctamente","<meta http-equiv='refresh' content='0; url=../logeatuta.html' />";
+    echo"<script>alert('Errore bat egon da!! Dagoneko NAN hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
+    //echo"Errore bat egon da!! Dagoneko NAN hori sartuta dago","<meta http-equiv='refresh' content='4; url=../erregistratu.html' />";
   }
 ?>
