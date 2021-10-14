@@ -18,12 +18,14 @@
   $ilara = mysqli_num_rows($query);
 
   if($ilara){
-    echo"<meta http-equiv='refresh' content='0; url=../logeatuta.html' />";
+    $_SESSION['uneko_erabiltzaile'] = $email;
+    header("Location: ../logeatuta.php");
   }
   else{
-    //echo"<meta http-equiv='refresh' content='0; url=../logIn.html' />";
     echo"<script language='javascript'>alert('Saio-hasiera baliogabea, saiatu berriz, mesedez.');</script>";
-    //echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
+    //header("Location: ../logIn.html");
+    echo"<meta http-equiv='refresh' content='0; url=../logIn.html' />";
+    //echo"<script language='javascript'>alert('Saio-hasiera baliogabea, saiatu berriz, mesedez.');</script>";
   }
 
   mysqli_free_result($query);

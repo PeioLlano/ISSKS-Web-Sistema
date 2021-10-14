@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,6 +6,7 @@
         <title>JP Polikiroldegia</title>
         <link rel="icon" type="image/png" href="https://img.icons8.com/glyph-neue/64/000000/basketball.png" />	
         <link rel="stylesheet" href="css/styleL.css">
+        <meta charset="UTF-8">
         <!--Letra mota aldatu ahal izateko-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +28,15 @@
             </nav>
 
             <div class="text-box">
-                <h1>Ongi etorri!</h1>
-                <p> Hemen zure informazioa eskuragarri izango duzu.</p>
+                <?php
+                    if(isset($_SESSION['uneko_erabiltzaile'])){
+                        echo '<h1>Ongi etorri' . $_SESSION['uneko_erabiltzaile'] . '!</h1>';
+                        echo "<p> Hemen zure informazioa eskuragarri izango duzu.</p>";
+                    }
+                    else{
+                        echo 'no funciona';
+                    }
+                ?>
             </div>
 	</body>
 </html>
