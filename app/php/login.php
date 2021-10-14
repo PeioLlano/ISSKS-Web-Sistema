@@ -11,6 +11,8 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
+  session_start();
+
   $email = $_POST['email'];
   $pasahitza = $_POST['pasahitza'];
 
@@ -19,7 +21,8 @@
 
   if($ilara){
     $_SESSION['uneko_erabiltzaile'] = $email;
-    header("Location: ../logeatuta.php");
+    //echo"<script>alert(" . $_SESSION . ")</script>";
+    header("Location: logeatuta.php");
   }
   else{
     echo"<script language='javascript'>alert('Saio-hasiera baliogabea, saiatu berriz, mesedez.');</script>";
