@@ -20,7 +20,14 @@
   $ilara = mysqli_num_rows($query);
 
   if($ilara){
-    $_SESSION['uneko_erabiltzaile'] = $email;
+    $unekoIlara = mysqli_fetch_array( $query );
+    $_SESSION['uneko_izena'] = $unekoIlara['izenAbizenak'];
+    $_SESSION['uneko_NAN'] = $unekoIlara['NAN'];
+    $_SESSION['uneko_tlf'] = $unekoIlara['telefonoa'];
+    $_SESSION['uneko_jaiotze'] = $unekoIlara['jaiotzeData'];
+    $_SESSION['uneko_email'] = $unekoIlara['email'];
+    $_SESSION['uneko_pasahitza'] = $unekoIlara['pasahitza'];
+
     //echo"<script>alert(" . $_SESSION . ")</script>";
     header("Location: logeatuta.php");
   }

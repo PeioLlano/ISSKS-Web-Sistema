@@ -30,8 +30,8 @@
 
             <div class="text-box">
                 <?php
-                    if(isset($_SESSION['uneko_erabiltzaile'])){
-                        echo '<h1>Ongi etorri ' . $_SESSION['uneko_erabiltzaile'] . '!</h1>';
+                    if(isset($_SESSION['uneko_izena'])){
+                        echo '<h1>Ongi etorri ' . $_SESSION['uneko_izena'] . '!</h1>';
                         echo "<p> Hemen zure informazioa eguneratu ahalko duzu.</p>";
                     }
                     else{
@@ -41,15 +41,17 @@
             </div>
         </section>
         <section class="erregistroa">
-            <form class="formularioa" id="form" method="post" action="php/erregistratu.php">
-                <input class="textBoxBakoitza" type="text" value="Peio" id="izena" name="izena" placeholder="Zure izen-abizenak sartu"><br>
-                <input class="textBoxBakoitza" type="text" id="nan" name="nan" placeholder="Zure NAN-a sartu"><br>
-                <input class="textBoxBakoitza" type="text" id="tlf" name="tlf" placeholder="Zure telefonoa sartu"><br>
-                <input class="textBoxBakoitza" type="text" id="jaiotze" name="jaiotze" placeholder="Zure jaiotze data sartu"><br>
-                <input class="textBoxBakoitza" type="email" id="email" name="email" placeholder="Zure emaila sartu"><br>
-                <input class="textBoxBakoitza" type="password" id="pasahitza" name="pasahitza" placeholder="Zure pasahitza sartu"><br>
-                <input class="textBoxBakoitza" type="password" id="repPasahitza" name="repPasahitza" placeholder="Zure pasahitza berriro sartu"><br>
-                <button onclick="datuakKonprobatu(event);" class="botoia">Eguneratu </button>
+            <form class="formularioa" id="form" method="post" action="eguneratu.php">
+                <?php
+                    echo '<input class="textBoxBakoitza" type="text" value="' . $_SESSION['uneko_izena'] .'" id="izena" name="izena" placeholder="Zure izen-abizenak sartu"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" id="nan" value="' . $_SESSION['uneko_NAN'] . '" readonly="readonly" name="nan" placeholder="Zure NAN-a sartu"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" id="tlf" value="' . $_SESSION['uneko_tlf'] . '" name="tlf" placeholder="Zure telefonoa sartu"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" id="jaiotze" value="' . $_SESSION['uneko_jaiotze'] . '" name="jaiotze" placeholder="Zure jaiotze data sartu"><br>';
+                    echo '<input class="textBoxBakoitza" type="email" id="email" value="' . $_SESSION['uneko_email'] . '" name="email" placeholder="Zure emaila sartu"><br>';
+                    echo '<input class="textBoxBakoitza" type="password" id="pasahitza" value="' . $_SESSION['uneko_pasahitza'] . '" name="pasahitza" placeholder="Zure pasahitza sartu"><br>';
+                    echo '<input class="textBoxBakoitza" type="password" id="repPasahitza" value="' . $_SESSION['uneko_pasahitza'] . '" name="repPasahitza" placeholder="Zure pasahitza berriro sartu"><br>';
+                    echo '<button onclick="datuakKonprobatu(event);" class="botoia">Eguneratu </button>';
+                ?>
             </form>
         </section>
 	</body>
