@@ -95,7 +95,8 @@ CREATE TABLE `elementua` (
   `data` date NOT NULL,
   `ordutegia` char(5) NOT NULL,
   `monitorea` varchar(30) NOT NULL,
-  `gela` varchar(15) NOT NULL
+  `gela` varchar(15) NOT NULL,
+  `bezeroNAN` char(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -107,8 +108,14 @@ CREATE TABLE `elementua` (
 --
 ALTER TABLE `elementua`
   ADD PRIMARY KEY (`kirola`,`data`,`ordutegia`);
-COMMIT;
 
+
+ALTER TABLE `elementua`
+    ADD CONSTRAINT `bezeroNAN`
+    FOREIGN KEY (`bezeroNAN`)
+    REFERENCES `bezeroa`(`NAN`);
+
+COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
