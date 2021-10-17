@@ -19,8 +19,8 @@
   $gela = "P7I5";
   
   //Kirol eta egun horretan ordu hori hartuta dagoen begiratzeko
-  $ordutegiKonprobaketa = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `kirola`=$kirola AND `data`=$data AND `ordutegia`=$ordutegia; ");
-  if(empty($ordutegiKonprobaketa)){
+  $ordutegiKonprobaketa = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `kirola` = '$kirola' AND `data` = '$data' AND `ordutegia` = '$ordutegia'; ");
+  if(mysqli_num_rows($ordutegiKonprobaketa) == 0){
     //5 elementu dituen begiratzeko
     $elemKonprobaketa = mysqli_query($conn, "SELECT COUNT(*) FROM `elementua` WHERE `bezeroNAN`='" . $_SESSION['uneko_NAN'] . "'; ");
     $unekoIlara = mysqli_fetch_array($elemKonprobaketa);
@@ -30,14 +30,14 @@
         echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
       }
       else{
-          echo"<script>alert('Erreserba bete da.')</script>","<meta http-equiv='refresh' content='0; url=insertElementua.php' />";
+          echo"<script>alert('Erreserba bete da.')</script>","<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
       }
     }
     else{
-        echo"<script>alert('Errore bat egon da!! Dagoneko badituzu 5 erreserba eginda.')</script>","<meta http-equiv='refresh' content='0; url=../klaseaSartu.html' />";
+        echo"<script>alert('Errore bat egon da!! Dagoneko badituzu 5 erreserba eginda.')</script>","<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
     }
   }
   else{
-    echo"<script>alert('Errore bat egon da!! Dagoneko ordu hori okupatuta dago')</script>","<meta http-equiv='refresh' content='0; url=../klaseaSartu.html' />";
+    echo"<script>alert('Errore bat egon da!! Dagoneko ordu hori okupatuta dago')</script>","<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
   }
 ?>
