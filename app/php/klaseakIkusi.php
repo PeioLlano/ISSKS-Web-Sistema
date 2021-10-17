@@ -46,7 +46,8 @@
         </section>
         
         <section class="erreserbaZer">
-            <table border=2px>
+            <!--<table border=2px>-->
+            <table>
                 <?php
                     //Uneko erabiltzaileak dituen erreserbak pantailaratzeko
                     $elementuKontsulta = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `bezeroNAN`='" . $_SESSION['uneko_NAN'] . "'; ");
