@@ -45,7 +45,7 @@
             </div>
         </section>
         <section class="sartu">
-            <form class="formularioa" id="form" method="post" action="php/insertElementua.php">
+            <form class="formularioa" id="form" method="post" action="insertElementua.php">
                 <label class="label" for="kirola">Kirola hautatu:</label>
 
                 <select class="select" name="kirola" id="kirola">
