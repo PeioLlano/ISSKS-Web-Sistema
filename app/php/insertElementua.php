@@ -10,6 +10,8 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
+  session_start();
+
   $kirola = $_POST['kirola'];
   $data = $_POST['data'];
   $ordutegia = $_POST['ordutegia'];
@@ -23,16 +25,12 @@
     $elemKonprobaketa = mysqli_query($conn, "SELECT COUNT(*) FROM `elementua` WHERE `bezeroNAN`='" . $_SESSION['uneko_NAN'] . "'; ");
     $unekoIlara = mysqli_fetch_array($elemKonprobaketa);
     if($unekoIlara['COUNT(*)'] < 5){
-      /* Solo para comprobar si pone bien el NAN --BORRAR--*/
-      echo "Pasa por aqui <br>";
-      echo "Nan: " . $_SESSION['uneko_NAN' . " <br>"];
-      /* --BORRAR--*/
-      $query = mysqli_query($conn, "INSERT INTO `elementua`(`kirola`, `data`, `ordutegia`, `monitorea`, `gela`, `bezeroNAN`) VALUES ('$kirola','$data','$ordutegia','$monitorea','$gela','12345678Z'); ");
+      $query = mysqli_query($conn, "INSERT INTO `elementua`(`kirola`, `data`, `ordutegia`, `monitorea`, `gela`, `bezeroNAN`) VALUES ('$kirola','$data','$ordutegia','$monitorea','$gela','". $_SESSION['uneko_NAN'] ."'); ");
       if(!$query){
         echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
       }
       else{
-          echo"<script>alert('Erreserba bete da.')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
+          echo"<script>alert('Erreserba bete da.')</script>","<meta http-equiv='refresh' content='0; url=insertElementua.php' />";
       }
     }
     else{
