@@ -1,11 +1,14 @@
-*{ /* Guztiarentzak esan nahi du*/
+* {
+    /* Guztiarentzak esan nahi du*/
     margin: 0;
     padding: 0;
     font-family: 'Raleway', sans-serif;
 }
 
+
 /* Hau background-erako erabiltzen da*/
-.header{ 
+
+.header {
     min-height: 20vh;
     width: 100%;
     /*background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.publicdomainpictures.net%2Fes%2Fview-image.php%3Fimage%3D208949%26picture%3Dfondo-azul-de-la-textura&psig=AOvVaw2PsOidQoBigJbtid0XrfzR&ust=1633034272145000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCOidlPOEpfMCFQAAAAAdAAAAABAO");*/
@@ -15,69 +18,91 @@
     position: relative;
 }
 
+
 /* CSS ETA NAVBAR-EKO STYLE*/
 
-nav{
-    display: flex; /* por ejemplo el detalle de que pasa cuando display: flex 
+nav {
+    display: flex;
+    /* por ejemplo el detalle de que pasa cuando display: flex 
     es declarado y definido en la especificacion de Modelo Flexible de Caja */
-    padding: 2% 6%; /* La propiedad CSS padding establece el espacio de relleno
+    padding: 2% 6%;
+    /* La propiedad CSS padding establece el espacio de relleno
      requerido por todos los lados de un elemento*/
     justify-content: space-between;
     align-items: center;
 }
 
-nav image  {
-    width: 100px; /* Logoa jarri nahi badugu, honen tamaina aldatzeko*/
+nav image {
+    width: 100px;
+    /* Logoa jarri nahi badugu, honen tamaina aldatzeko*/
 }
 
-.nav-links{
+.nav-links {
     flex: 1;
     text-align: right;
 }
 
-.nav-links ul li{
+.nav-links ul li {
     list-style: none;
     display: inline-block;
     padding: 2% 1%;
     position: relative;
 }
 
-.nav-links ul li a{ /* Egongo diren esteken tamaina, kolorea etab. aldatzeko*/
+.nav-links ul li a {
+    /* Egongo diren esteken tamaina, kolorea etab. aldatzeko*/
     color: grey;
     text-decoration: none;
     font-size: 20px;
 }
 
-.nav-links ul li::after{ /* Egongo diren esteken gainetik pasatzean azpimarra dadin*/
+.nav-links ul li::after {
+    /* Egongo diren esteken gainetik pasatzean azpimarra dadin*/
     width: 0%;
     height: 2px;
-    background:grey;
+    background: grey;
     display: block;
     margin: auto;
     transition: 0.5s;
 }
 
-.nav-links ul li:hover::after{
+.nav-links ul li:hover::after {
     width: 100%;
 }
 
+
 /* izenburu atala */
 
-.text-box{
+.text-box {
     width: 90%;
     color: grey;
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.text-box h1{
+.text-box h1 {
     font-size: 50px;
 }
 
-.text-box p{
-    margin: 10px 0px 40px; /* 10px from the top, 0px from the left and right an 40 pixel from the bottom*/ 
+.text-box p {
+    margin: 10px 0px 40px;
+    /* 10px from the top, 0px from the left and right an 40 pixel from the bottom*/
     font-size: 18px;
+}
+
+
+/* Erreserben taula */
+
+.erreserbaZer table {
+    width: 50%;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.errserbaZer table php {
+    width: 25%;
 }
