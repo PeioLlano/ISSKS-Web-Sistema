@@ -20,9 +20,6 @@
   $pasahitza = $_POST['pasahitza'];
   
   //NAN berria dagoneko sartuta dagoen begiratzeko
-  echo"Zegoena: " . $_SESSION['uneko_NAN'] ;
-  echo " -->  Oraingoa: $nan";
-  echo "<br>";
   $nanOndo=1;
   if($nan != $_SESSION['uneko_NAN']){
     $nanKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `NAN`='$nan'; ");
@@ -33,12 +30,9 @@
   }
 
   //Telefono berria dagoneko sartuta dagoen begiratzeko  
-  echo"Zegoena: " . $_SESSION['uneko_tlf'] ;
-  echo " -->  Oraingoa: $tlf";
-  echo "<br>";
   $tlfOndo = 1;
   if($tlf != $_SESSION['uneko_tlf']){
-    $tlfKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `tlf`='$tlf'; ");
+    $tlfKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `telefonoa`='$tlf'; ");
     if(!empty($tlfKonprobaketa)){
       $tlfOndo = 0;
       echo"<script>alert('Telefonoa aldatu duzu, baina telefono berria dagoneko sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
@@ -46,10 +40,7 @@
   }
 
   //Email berria dagoneko sartuta dagoen begiratzeko  
-  echo"Zegoena: " . $_SESSION['uneko_email'] ;
-  echo " -->  Oraingoa: $email";
-  echo "<br>";
-  $email = 1;
+  $emailOndo = 1;
   if($email != $_SESSION['uneko_email']){
     $emailKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `email`='$email'; ");
     if(!empty($emailKonprobaketa)){
@@ -59,12 +50,18 @@
   }
 
   if($nanOndo AND $tlfOndo AND $emailOndo){
-    $query = mysqli_query($conn, "UPDATE `bezeroa` SET `izenAbizenak`='$izena',`NAN`=$nan,`telefonoa`='$tlf',`jaiotzeData`='$jaiotze',`email`='$email',`pasahitza`='$pasahitza' WHERE `NAN`='" . $_SESSION['uneko_NAN'] . "'; ");
+    $query = mysqli_query($conn, "UPDATE `bezeroa` SET `izenAbizenak` = '$izena', `NAN` = '$nan', `telefonoa` = '$tlf', `jaiotzeData` = '$jaiotze', `email` = '$email', `pasahitza` = '$pasahitza' WHERE `bezeroa`.`NAN` = '". $_SESSION['uneko_NAN'] ."';  ");
     if(!$query){
       echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
     }
     else{
-        echo"datos guardado correctamente","<meta http-equiv='refresh' content='10; url=logeatuta.html' />";
+      $_SESSION['uneko_izena'] = $izena;
+      $_SESSION['uneko_NAN'] = $nan;
+      $_SESSION['uneko_tlf'] = $tlf;
+      $_SESSION['uneko_jaiotze'] = $jaiotze;
+      $_SESSION['uneko_email'] = $email;
+      $_SESSION['uneko_pasahitza'] = $pasahitza;
+      echo"<script>alert('Datuak, eguneratu dira!')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
     }
   }
   
