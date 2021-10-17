@@ -36,6 +36,6 @@
   echo"<script language='javascript'>alert('Erreserba ezabatua izan da.');</script>";
   echo"<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
 
-  mysqli_free_result($query);
+  //mysqli_free_result($query);
   
 ?>
