@@ -10,23 +10,56 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
+  session_start();
+
   $izena = $_POST['izena'];
   $nan = $_POST['nan'];
   $tlf = $_POST['tlf'];
   $jaiotze = $_POST['jaiotze'];
   $email = $_POST['email'];
   $pasahitza = $_POST['pasahitza'];
-
-  /*if ( isset( $_POST['izena'] ) ) { // retrieve the form data by using the element's name attributes value as key $firstname = $_POST['firstname']; $lastname = $_POST['lastname']; // display the results
-    echo '<h3>Form POST Method</h3>'; 
-    echo '<b>Zure datuak hurrengoak dira</b>: <br>' . $izena . '<br> ' . $nan . '<br> ' . $tlf . '<br> ' . $jaiotze . '<br> ' . $email. '<br> ' . $pasahitza ;
-  }*/
   
-  //NAN bat dagoneko sartuta dagoen begiratzeko
-  $nanKonprobaketa = mysqli_query($conn, "SELECT COUNT(*) FROM `bezeroa` WHERE `email`=$email; ");
-  if($nanKonprobaketa == 1){
-    $query = mysqli_query($conn, "UPDATE `bezeroa` SET `izenAbizenak`='$izena',`telefonoa`='$tlf',`jaiotzeData`='$jaiotze',`email`='$email',`pasahitza`='$pasahitza' WHERE `NAN`==' " . $_SESSION['uneko_NAN'] . "'; ");
-    //$query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('froga', 'froga2', '12', '2021-10-07', '12', ''); ");
+  //NAN berria dagoneko sartuta dagoen begiratzeko
+  echo"Zegoena: " . $_SESSION['uneko_NAN'] ;
+  echo " -->  Oraingoa: $nan";
+  echo "<br>";
+  $nanOndo=1;
+  if($nan != $_SESSION['uneko_NAN']){
+    $nanKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `NAN`='$nan'; ");
+    if(!empty($nanKonprobaketa)){
+      $nanOndo = 0;
+      echo"<script>alert('NAN aldatu duzu, baina NAN berria dagoneko sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
+    }
+  }
+
+  //Telefono berria dagoneko sartuta dagoen begiratzeko  
+  echo"Zegoena: " . $_SESSION['uneko_tlf'] ;
+  echo " -->  Oraingoa: $tlf";
+  echo "<br>";
+  $tlfOndo = 1;
+  if($tlf != $_SESSION['uneko_tlf']){
+    $tlfKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `tlf`='$tlf'; ");
+    if(!empty($tlfKonprobaketa)){
+      $tlfOndo = 0;
+      echo"<script>alert('Telefonoa aldatu duzu, baina telefono berria dagoneko sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
+    }
+  }
+
+  //Email berria dagoneko sartuta dagoen begiratzeko  
+  echo"Zegoena: " . $_SESSION['uneko_email'] ;
+  echo " -->  Oraingoa: $email";
+  echo "<br>";
+  $email = 1;
+  if($email != $_SESSION['uneko_email']){
+    $emailKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `email`='$email'; ");
+    if(!empty($emailKonprobaketa)){
+      $emailOndo = 0;
+      echo"<script>alert('Emaila aldatu duzu, baina email berria dagoneko sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
+    }
+  }
+
+  if($nanOndo AND $tlfOndo AND $emailOndo){
+    $query = mysqli_query($conn, "UPDATE `bezeroa` SET `izenAbizenak`='$izena',`NAN`=$nan,`telefonoa`='$tlf',`jaiotzeData`='$jaiotze',`email`='$email',`pasahitza`='$pasahitza' WHERE `NAN`='" . $_SESSION['uneko_NAN'] . "'; ");
     if(!$query){
       echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
     }
@@ -34,8 +67,5 @@
         echo"datos guardado correctamente","<meta http-equiv='refresh' content='10; url=logeatuta.html' />";
     }
   }
-  else{
-    echo"<script>alert('Errore bat egon da!! Dagoneko NAN hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
-    //echo"Errore bat egon da!! Dagoneko NAN hori sartuta dago","<meta http-equiv='refresh' content='4; url=../erregistratu.html' />";
-  }
+  
 ?>
