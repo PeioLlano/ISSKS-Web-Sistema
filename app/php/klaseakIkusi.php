@@ -31,8 +31,8 @@
                 <a href="index.html"><img src="../images/logo.png" ></a>
                 <div class="nav-links">
                     <ul>
-                        <li><a href="klaseaSartu.html">Klasea erreserbatu</a></li>
-                        <li><a href="klaseakIkusi.html">Klaseak Ikusi</a></li>
+                        <li><a href="klaseaKudeatu.php">Klasea erreserbatu</a></li>
+                        <li><a href="klaseakIkusi.php">Klaseak Ikusi</a></li>
                         <li><a href="logeatuta.php">Nire Kontua</a></li>
                         <li><a href="itxiSesioa.php">Itxi sesioa</a></li>
                     </ul>

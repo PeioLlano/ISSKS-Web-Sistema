@@ -32,7 +32,7 @@
                 <div class="nav-links">
                     <ul>
                         <li><a href="klaseaKudeatu.php">Klaseak kudeatu</a></li>
-                        <li><a href="../klaseakIkusi.html">Klaseak ikusi</a></li>
+                        <li><a href="klaseakIkusi.php">Klaseak ikusi</a></li>
                         <li><a href="logeatuta.php">Nire Kontua</a></li>
                         <li><a href="itxiSesioa.php">Itxi sesioa</a></li>
                     </ul>
@@ -81,7 +81,7 @@
                     <p> Hemen nahi dituzun erreserbak kendu ahalko dituzu.</p>
             </div>
             <form class="formularioa" id="form" method="post" action="deleteElementua.php">
-                <label class="label" for="kirola">Kirola hautatu:</label>
+                <label class="labelEz" for="erreserba">Erreserba hautatu:</label>
 
                 <select class="select" name="erreserba" id="erreserba">
             
@@ -95,14 +95,66 @@
                         } else {
                             echo "<option value="-">Ez duzu klase erreserbaturik.</option>";
                         }
-
-                        mysqli_close($conn);
                     ?>
                 </select> 
                 <br>
 
                 <button type="reset" class="botoia">Ezabatu</button>
                 <button class="botoia">Erreserba kendu </button>
+            </form>
+        </section>
+        <section class="eguneratu">
+            <div class="eguneratu_goiburu">
+                    <h1>Klaseak Eguneratu</h1>
+                    <p> Hemen nahi dituzun erreserbak eguneratu ahalko dituzu.</p>
+            </div>
+            <form class="formularioa" id="form" method="post" action="updateElementua.php">
+                <label class="label" for="kirola">Erreserba hautatu:</label>
+
+                <select class="select" name="erreserba" id="erreserba">
+            
+                    <?php
+                        $query = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `bezeroNAN` = '" . $_SESSION['uneko_NAN'] . "' ; ");
+
+                        if (mysqli_num_rows($query) > 0) {
+                            while($ilara = mysqli_fetch_assoc($query)){
+                                echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . "-etan</option>";
+                            }   
+                        } else {
+                            echo "<option value="-">Ez duzu klase erreserbaturik.</option>";
+                        }
+                    ?>
+                </select>
+                <div class="iruzkina"> 
+                    <p>-------------------------------- Hautatutako erreserba eguneratzeko. --------------------------------</p>
+                </div>
+                <br>
+                <label class="label" for="kirola">Kirola hautatu:</label>
+
+                <select class="select" name="kirola" id="kirola">
+                  <option value="Areto Futbola">Areto futbola</option>
+                  <option value="Saskibaloia">Saskibaloia</option>
+                  <option value="Igeriketa">Igeriketa</option>
+                  <option value="Gimnasioa">Gimnasioa</option>
+                </select> 
+
+                <br>
+
+                <label class="label" for="data">Data:</label>
+
+                <input class="data" type="date" id="data" name="data"
+                    value="2018-07-22"
+                    min="2021-01-01" max="2050-12-31">
+
+                <br>
+
+                <label class="label" for="ordua">Ordua:</label>
+                <input class="ordua" type="time" id="ordutegia" name="ordutegia">
+                
+                <br>
+
+                <button type="reset" class="botoia">Ezabatu</button>
+                <button class="botoia">Eguneratu </button>
             </form>
         </section>
 	</body>
