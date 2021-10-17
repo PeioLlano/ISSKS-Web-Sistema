@@ -1,0 +1,196 @@
+*{ /* Guztiarentzak esan nahi du*/
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Hau background-erako erabiltzen da*/
+.header{ 
+    min-height: 20vh;
+    width: 100%;
+    /*background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.publicdomainpictures.net%2Fes%2Fview-image.php%3Fimage%3D208949%26picture%3Dfondo-azul-de-la-textura&psig=AOvVaw2PsOidQoBigJbtid0XrfzR&ust=1633034272145000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCOidlPOEpfMCFQAAAAAdAAAAABAO");*/
+    /*background-color: black;*/
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+/* CSS ETA NAVBAR-EKO STYLE*/
+
+nav{
+    display: flex; /* por ejemplo el detalle de que pasa cuando display: flex 
+    es declarado y definido en la especificacion de Modelo Flexible de Caja */
+    padding: 2% 6%; /* La propiedad CSS padding establece el espacio de relleno
+     requerido por todos los lados de un elemento*/
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav image  {
+    width: 100px; /* Logoa jarri nahi badugu, honen tamaina aldatzeko*/
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 2% 1%;
+    position: relative;
+}
+
+.nav-links ul li a{ /* Egongo diren esteken tamaina, kolorea etab. aldatzeko*/
+    color: grey;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-links ul li::after{ /* Egongo diren esteken gainetik pasatzean azpimarra dadin*/
+    width: 0%;
+    height: 2px;
+    background:grey;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+
+/* izenburu atala */
+
+.text-box{
+    width: 90%;
+    color: grey;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.text-box h1{
+    font-size: 50px;
+}
+
+.text-box p{
+    margin: 10px 0px 40px; /* 10px from the top, 0px from the left and right an 40 pixel from the bottom*/ 
+    font-size: 18px;
+}
+
+/* Eregistroa atala*/
+
+.erregistroa{
+    min-height: 50vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.formularioa{
+    align-content: center;
+
+}
+
+.textBoxBakoitza{
+    margin-top: 6px;
+    margin-bottom: 2px;
+    height: 40px;
+    width: 700px;
+    font-size: 18px;
+    text-align: center;
+    
+}
+
+.textBoxBakoitza::placeholder {
+    text-align: center;
+}
+
+/* Botoiaren css */
+
+.botoia{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    margin-left: 20px;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: grey;
+    color: white;
+}
+
+/* Input-en inguruko textuaren css */
+
+.label {
+    font-size: 18px;
+    text-align: center;
+    color: grey;
+}
+
+/* Kirola hautatzeko agertzen den selectaren css */
+
+.select {
+    display: block;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: grey;
+    line-height: 1.3;
+    padding: .4em 1.4em .3em .8em;
+    width: 400px;
+    max-width: 100%; 
+    box-sizing: border-box;
+    margin: 5px auto;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+    border-radius: 5px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+  }
+
+  /* Data inpit-aren css */
+
+  .data {
+      background-color: white;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      font-size: 18px;
+      font-family: 'Raleway', sans-serif;
+      color: grey;
+      border: 1px solid #aaa;
+      outline: none;
+      border-radius: 5px;
+
+      box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+  }
+
+  .ordua {
+    background-color: white;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    color: grey;
+    border: 1px solid #aaa;
+    outline: none;
+    border-radius: 5px;
+
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+}
+ 
+  
