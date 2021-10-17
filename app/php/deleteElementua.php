@@ -31,10 +31,15 @@
   $kirola= strtok($erreserba, ',');
   $data=getBetween($erreserba, ', Data:', ', Ordua:');
   $ordutegia=getBetween($erreserba, ', Ordua:', '.');
-  
-  $query = mysqli_query($conn, "DELETE FROM `elementua` WHERE `kirola`='$kirola'  AND `data`='$data'  AND `ordutegia`='$ordutegia' ; ");
-  echo"<script language='javascript'>alert('Erreserba ezabatua izan da.');</script>";
-  echo"<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
+  if($erreserba != ""){
+    $query = mysqli_query($conn, "DELETE FROM `elementua` WHERE `kirola`='$kirola'  AND `data`='$data'  AND `ordutegia`='$ordutegia' ; ");
+    echo"<script language='javascript'>alert('Erreserba ezabatua izan da.');</script>";
+    echo"<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
+  }
+  else{
+    echo"<script language='javascript'>alert('Ez duzu erreserbarik ezabatzeko.');</script>";
+    echo"<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
+  }
 
   //mysqli_free_result($query);
   

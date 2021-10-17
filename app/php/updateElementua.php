@@ -39,18 +39,24 @@
   $ordutegia = $_POST['ordutegia'];
   
   //Kirol eta egun horretan ordu hori hartuta dagoen begiratzeko
-  $ordutegiKonprobaketa = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `kirola`=$kirola AND `data`=$data AND `ordutegia`=$ordutegia; ");
-  if(empty($ordutegiKonprobaketa)){
-      $query = mysqli_query($conn, "UPDATE `elementua` SET `kirola`='$kirola',`data`='$data',`ordutegia`='$ordutegia' WHERE `kirola`='$kirolZaharra' AND `data`='$dataZaharra' AND `ordutegia`='$ordutegiZaharra'; ");
-      if(!$query){
-        echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
-      }
-      else{
-          echo"<script>alert('Erreserba eguneratu da.')</script>","<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
-      }
+  if($erreserba != ""){
+    $ordutegiKonprobaketa = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `kirola`=$kirola AND `data`=$data AND `ordutegia`=$ordutegia; ");
+    if(empty($ordutegiKonprobaketa)){
+        $query = mysqli_query($conn, "UPDATE `elementua` SET `kirola`='$kirola',`data`='$data',`ordutegia`='$ordutegia' WHERE `kirola`='$kirolZaharra' AND `data`='$dataZaharra' AND `ordutegia`='$ordutegiZaharra'; ");
+        if(!$query){
+          echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
+        }
+        else{
+            echo"<script>alert('Erreserba eguneratu da.')</script>","<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
+        }
+    }
+    else{
+      echo"<script>alert('Errore bat egon da!! Dagoneko ordu hori okupatuta dago')</script>","<meta http-equiv='refresh' content='0; url=../klaseaSartu.html' />";
+    }
   }
   else{
-    echo"<script>alert('Errore bat egon da!! Dagoneko ordu hori okupatuta dago')</script>","<meta http-equiv='refresh' content='0; url=../klaseaSartu.html' />";
+    echo"<script language='javascript'>alert('Ez duzu erreserbarik eguneratzeko.');</script>";
+    echo"<meta http-equiv='refresh' content='0; url=klaseaKudeatu.php' />";
   }
   
 ?>
