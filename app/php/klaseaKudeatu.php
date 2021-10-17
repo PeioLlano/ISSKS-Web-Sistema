@@ -48,7 +48,7 @@
             <form class="formularioa" id="form" method="post" action="insertElementua.php">
                 <label class="label" for="kirola">Kirola hautatu:</label>
 
-                <select class="select" name="kirola" id="kirola">
+                <select class="select" name="kirola" id="kirola" required>
                   <option value="Areto Futbola">Areto futbola</option>
                   <option value="Saskibaloia">Saskibaloia</option>
                   <option value="Igeriketa">Igeriketa</option>
@@ -60,13 +60,12 @@
                 <label class="label" for="data">Data:</label>
 
                 <input class="data" type="date" id="data" name="data"
-                    value="2018-07-22"
-                    min="2021-01-01" max="2050-12-31">
+                    min="2021-01-01" max="2050-12-31" required>
 
                 <br>
 
                 <label class="label" for="ordua">Ordua:</label>
-                <input class="ordua" type="time" id="ordutegia" name="ordutegia">
+                <input class="ordua" type="time" id="ordutegia" name="ordutegia" required>
                 
                 <br>
 
@@ -129,7 +128,7 @@
                     <p>-------------------------------- Hautatutako erreserba eguneratzeko. --------------------------------</p>
                 </div>
                 <br>
-                <label class="label" for="kirola">Kirola hautatu:</label>
+                <label class="label" for="kirola">Kirola hautatu:</label required>
 
                 <select class="select" name="kirola" id="kirola">
                   <option value="Areto Futbola">Areto futbola</option>
@@ -143,13 +142,12 @@
                 <label class="label" for="data">Data:</label>
 
                 <input class="data" type="date" id="data" name="data"
-                    value="2018-07-22"
-                    min="2021-01-01" max="2050-12-31">
+                    min="2021-01-01" max="2050-12-31" required>
 
                 <br>
 
                 <label class="label" for="ordua">Ordua:</label>
-                <input class="ordua" type="time" id="ordutegia" name="ordutegia">
+                <input class="ordua" type="time" id="ordutegia" name="ordutegia" required>
                 
                 <br>
 

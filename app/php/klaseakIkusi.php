@@ -53,11 +53,10 @@
                     echo
                     "<tr>
                     <td><b>Kirola</b></td>
-                    <td><b>data</b></td>
-                    <td><b>ordutegia</b></td>
-                    <td><b>monitorea</b></td>
-                    <td><b>gela</b></td>
-                    <td><b>bezeroNAN</b></br></td>
+                    <td><b>Data</b></td>
+                    <td><b>Ordutegia</b></td>
+                    <td><b>Monitorea</b></td>
+                    <td><b>Gela</b></td>
                     </tr>";
                     while ($ilara = mysqli_fetch_array($elementuKontsulta)) {  
                         echo
@@ -66,8 +65,7 @@
                         <td>{$ilara['data']}</td>
                         <td>{$ilara['ordutegia']}</td>
                         <td>{$ilara['monitorea']}</td>
-                        <td>{$ilara['gela']}</td>
-                        <td>{$ilara['bezeroNAN']} </br></td>
+                        <td>{$ilara['gela']}</br></td>
                         </tr>";  
                     }
                 ?>            
