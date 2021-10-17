@@ -28,7 +28,7 @@
     <body>
         <section class="header">
             <nav>
-                <a href="index.html"><img src="../images/logo.png" ></a>
+                <a href="../index.html"><img src="../images/logo.png" ></a>
                 <div class="nav-links">
                     <ul>
                         <li><a href="klaseaKudeatu.php">Klasea erreserbatu</a></li>
