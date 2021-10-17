@@ -10,6 +10,8 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
+  session_start();
+
   $izena = $_POST['izena'];
   $nan = $_POST['nan'];
   $tlf = $_POST['tlf'];
@@ -22,20 +24,48 @@
     echo '<b>Zure datuak hurrengoak dira</b>: <br>' . $izena . '<br> ' . $nan . '<br> ' . $tlf . '<br> ' . $jaiotze . '<br> ' . $email. '<br> ' . $pasahitza ;
   }*/
   
-  //NAN bat dagoneko sartuta dagoen begiratzeko
-  $nanKonprobaketa = mysqli_query($conn, "SELECT COUNT(*) FROM `bezeroa` WHERE `NAN`=$nan; ");
-  if($nanKonprobaketa == 1){
-    $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza'); ");
-    //$query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('froga', 'froga2', '12', '2021-10-07', '12', ''); ");
-    if(!$query){
-      echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
-    }
-    else{
-        echo"datos guardado correctamente","<meta http-equiv='refresh' content='10; url=../logeatuta.html' />";
-    }
+
+  $nanKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE NAN = '$nan'; ");
+  $nanSartuta = 1;
+  $tlfKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE telefonoa = '$tlf'; ");
+  $tlfSartuta = 1;
+  $emailKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE email = '$email'; ");
+  $emailSartuta = 1;
+  if(mysqli_num_rows($nanKonprobaketa) == 0){
+    $nanSartuta = 0;
   }
   else{
     echo"<script>alert('Errore bat egon da!! Dagoneko NAN hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
-    //echo"Errore bat egon da!! Dagoneko NAN hori sartuta dago","<meta http-equiv='refresh' content='4; url=../erregistratu.html' />";
+  }
+
+  if(mysqli_num_rows($tlfKonprobaketa) == 0){
+    $tlfSartuta = 0;
+  }
+  else{
+    echo"<script>alert('Errore bat egon da!! Dagoneko telefono hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
+  }
+
+  if(mysqli_num_rows($emailKonprobaketa) == 0){
+    $emailSartuta = 0;
+  }
+  else{
+    echo"<script>alert('Errore bat egon da!! Dagoneko email hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
+  }
+
+  if(!$nanSartuta AND !$tlfSartuta AND !$emailSartuta){
+    $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza'); ");   
+    if(!$query){
+      echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error. "<br>";
+    }
+    else{
+      //echo"datos guardado correctamente","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
+      $_SESSION['uneko_izena'] = $izena;
+      $_SESSION['uneko_NAN'] = $nan;
+      $_SESSION['uneko_tlf'] = $tlf;
+      $_SESSION['uneko_jaiotze'] = $jaiotze;
+      $_SESSION['uneko_email'] = $email;
+      $_SESSION['uneko_pasahitza'] = $pasahitza;
+      header("Location: logeatuta.php");
+    }
   }
 ?>
