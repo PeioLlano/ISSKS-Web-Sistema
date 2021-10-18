@@ -51,24 +51,30 @@
                 <?php
                     //Uneko erabiltzaileak dituen erreserbak pantailaratzeko
                     $elementuKontsulta = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `bezeroNAN`='" . $_SESSION['uneko_NAN'] . "'; ");
-                    echo
-                    "<tr>
-                    <td><b>Kirola</b></td>
-                    <td><b>Data</b></td>
-                    <td><b>Ordutegia</b></td>
-                    <td><b>Monitorea</b></td>
-                    <td><b>Gela</b></td>
-                    </tr>";
-                    while ($ilara = mysqli_fetch_array($elementuKontsulta)) {  
+                    if(mysqli_num_rows($elementuKontsulta) != 0){
                         echo
                         "<tr>
-                        <td>{$ilara['kirola']}</td>
-                        <td>{$ilara['data']}</td>
-                        <td>{$ilara['ordutegia']}</td>
-                        <td>{$ilara['monitorea']}</td>
-                        <td>{$ilara['gela']}</br></td>
-                        </tr>";  
+                        <td><b>Kirola</b></td>
+                        <td><b>Data</b></td>
+                        <td><b>Ordutegia</b></td>
+                        <td><b>Monitorea</b></td>
+                        <td><b>Gela</b></td>
+                        </tr>";
+                        while ($ilara = mysqli_fetch_array($elementuKontsulta)) {  
+                            echo
+                            "<tr>
+                            <td>{$ilara['kirola']}</td>
+                            <td>{$ilara['data']}</td>
+                            <td>{$ilara['ordutegia']}</td>
+                            <td>{$ilara['monitorea']}</td>
+                            <td>{$ilara['gela']}</br></td>
+                            </tr>";  
+                        }
                     }
+                    else{
+                        echo"<p>Ez duzu klase erreserbaturik, nahi izatekotan joan klaseak kudeatu atalera eta klaseak klaseak erreserbatu.</p>";
+                    }
+                    
                 ?>            
             </table>   
         </section>

@@ -104,5 +104,13 @@ nav image {
 }
 
 .errserbaZer table php {
-    width: 26%;
+    width: 50%;
+    color: grey;
+}
+
+.errserbaZer p {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 60px;
+    color: grey;
 }

@@ -85,7 +85,8 @@ nav image  {
 
 .klaseak{
     min-height: 63vh;
-    width: 100%;
+    width: 98%;
+    border-radius: 15px;
     margin: auto;
     text-align: center;
     padding-top: 50px;
@@ -166,20 +167,4 @@ nav image  {
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
-}
-
-/* Behekoa atala */
-
-.behekoa{
-    width: 100%;
-    text-align: center;
-    padding: auto;
-}
-
-.behekoa h4{
-    font-size: small;
-    margin-top: 20px;
-    margin-bottom: 25px;
-    font-weight: 600;
-    color: grey;
 }
