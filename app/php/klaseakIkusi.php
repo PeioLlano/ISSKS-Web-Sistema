@@ -49,32 +49,39 @@
         
         <section class="erreserbaZer">
             <!--<table border=2px>-->
-            <table class="taula">
+            <table>
                 <?php
                     //Uneko erabiltzaileak dituen erreserbak pantailaratzeko
                     $elementuKontsulta = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `bezeroNAN`='" . $_SESSION['uneko_NAN'] . "'; ");
                     if(mysqli_num_rows($elementuKontsulta) != 0){
                         echo
-                        "<tr>
-                        <td><b>Kirola</b></td>
-                        <td><b>Data</b></td>
-                        <td><b>Ordutegia</b></td>
-                        <td><b>Monitorea</b></td>
-                        <td><b>Gela</b></td>
-                        </tr>";
+                        "<thead>
+                            <tr>
+                                <td><b>Kirola</b></td>
+                                <td><b>Data</b></td>
+                                <td><b>Ordutegia</b></td>
+                                <td><b>Monitorea</b></td>
+                                <td><b>Gela</b></td>
+                            </tr>
+                        </thead>";
+                        echo
+                        "<tbody>";
                         while ($ilara = mysqli_fetch_array($elementuKontsulta)) {  
                             echo
                             "<tr>
-                            <td>{$ilara['kirola']}</td>
-                            <td>{$ilara['data']}</td>
-                            <td>{$ilara['ordutegia']}</td>
-                            <td>{$ilara['monitorea']}</td>
-                            <td>{$ilara['gela']}</br></td>
+                                <td>{$ilara['kirola']}</td>
+                                <td>{$ilara['data']}</td>
+                                <td>{$ilara['ordutegia']}</td>
+                                <td>{$ilara['monitorea']}</td>
+                                <td>{$ilara['gela']}</br></td>
                             </tr>";  
                         }
+                        echo 
+                        "</tbody>";
                     }
                     else{
                         echo"<p>Ez duzu klase erreserbaturik, nahi izatekotan joan klaseak kudeatu atalera eta klaseak klaseak erreserbatu.</p>";
+                        echo"<img src='../images/arazoLogoa.webp' width=400px height=400px>";
                     }
                     
                 ?>            

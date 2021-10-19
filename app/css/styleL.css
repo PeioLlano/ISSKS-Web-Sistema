@@ -96,7 +96,7 @@ nav image {
 
 /* Erreserben taula */
 
-.erreserbaZer{
+.erreserbaZer {
     min-height: 61.7vh;
     width: 100%;
     text-align: center;
@@ -105,15 +105,45 @@ nav image {
 }
 
 .erreserbaZer table {
+    /* Taula estuagoa izateko*/
+    border-collapse: collapse;
     width: 50%;
     margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 25px;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.errserbaZer p {
-    font-size: 18px;
+.erreserbaZer table thead tr {
+    background-color: #7c7c7c;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.erreserbaZer table td,
+.erreserbaZer table tr {
+    padding: 12px 15px;
+}
+
+.erreserbaZer table tbody tr {
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.erreserbaZer table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.erreserbaZer table tbody tr:last-of-type {
+    border-bottom: 2px solid #7c7c7c;
+}
+
+.erreserbaZer p {
+    font-size: 30px;
     text-align: center;
     margin-top: 60px;
-    color: grey;
+    padding-bottom: 50px;
 }
