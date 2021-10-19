@@ -55,6 +55,9 @@
                   <option value="Saskibaloia">Saskibaloia</option>
                   <option value="Igeriketa">Igeriketa</option>
                   <option value="Gimnasioa">Gimnasioa</option>
+                  <option value="Squash">Squash</option>
+                  <option value="Gimnasia Erritmikoa">Gimnasia Erritmikoa</option>
+                </select> 
                 </select> 
 
                 <br>
@@ -136,6 +139,8 @@
                   <option value="Saskibaloia">Saskibaloia</option>
                   <option value="Igeriketa">Igeriketa</option>
                   <option value="Gimnasioa">Gimnasioa</option>
+                  <option value="Squash">Squash</option>
+                  <option value="Gimnasia Erritmikoa">Gimnasia Erritmikoa</option>
                 </select> 
 
                 <br>
