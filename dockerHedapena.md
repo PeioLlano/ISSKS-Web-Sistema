@@ -10,9 +10,7 @@ Horretarako komando lerroa ireki eta proiektua sortu nahi den katalogora mugitu 
 
 Agindu honen ostean "docker-lamp" izeneko katalogo bat sortuko da, honako egitura izango duena eta proiektuan hainbat zerbitzu erabiltzeko baliagarria izango dena:
 
-########
-![](Aquí va el link de la imagen dockerHedapena1.png)
-########
+![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/dockerHedapena1.png)
 
 ##  2. Proiektua docker bidez hedatu
 
