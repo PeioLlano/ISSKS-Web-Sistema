@@ -62,7 +62,7 @@
                 <label class="label" for="data">Data:</label>
 
                 <input class="data" type="date" id="data" name="data"
-                    min="2021-01-01" max="2050-12-31" required>
+                    min="<?php echo date("Y-m-d");?>" max="2050-12-31" required>
 
                 <br>
 
@@ -85,7 +85,6 @@
                 <label class="labelEz" for="erreserba">Erreserba hautatu:</label>
 
                 <select class="select" name="erreserba" id="erreserba">
-            
                     <?php
                         $query = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `bezeroNAN` = '" . $_SESSION['uneko_NAN'] . "' ; ");
 
