@@ -28,6 +28,11 @@
     $_SESSION['uneko_email'] = $unekoIlara['email'];
     $_SESSION['uneko_pasahitza'] = $unekoIlara['pasahitza'];
 
+    $gaur=getdate();
+    $eguna = $gaur['year'] . "-" . $gaur['mon'] . "-" . $gaur['mday'];
+    $ordua = $gaur['hours']+2 . ":" . $gaur['minutes'];
+    mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` < '$eguna' ; ");
+    mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` = '$eguna' AND `ordutegia` < '$ordua' ; ");
     //echo"<script>alert(" . $_SESSION . ")</script>";
     header("Location: logeatuta.php");
   }
