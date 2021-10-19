@@ -19,11 +19,13 @@
         <title>JP Polikiroldegia</title>
         <link rel="icon" type="image/png" href="https://img.icons8.com/glyph-neue/64/000000/basketball.png" />	
         <link rel="stylesheet" href="../css/styleKK.css">
+        <link rel="stylesheet" href="../css/styleF.css">
         <!--Letra mota aldatu ahal izateko-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet"> 
         <!--Letra mota aldatu ahal izateko-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
         <section class="header">
@@ -155,5 +157,23 @@
                 <button class="botoia">Eguneratu </button>
             </form>
         </section>
+        <!--------------------  Footer* --------- ----------->
+        <section class="footer">
+            <div class="social">
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-snapchat"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+    
+            <ul class="list">
+                <li><a href="index.html">Klaseak kudeatu</a></li>
+                <li><a href="erregistratu.html">Klaseak ikusi</a></li>
+                <li><a href="logIn.html">Nire Kontua</a></li>
+                <li><a href="guriBuruz.html">Itxi Sesioa</a></li>
+            </ul>
+        </section>
+        <!--------------------  Footer* --------- ----------->
 	</body>
 </html>
