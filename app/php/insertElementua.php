@@ -12,11 +12,41 @@
 
   session_start();
 
+  function randomIzena(){
+    $izenak = array('Peio','Julen','Maider','Asier','Ander','Aiala', 'Andoni', 'Miren','Claudia','Markel','Irene');
+    return $izenak[rand(0,count($izenak)-1)];
+  }
+
+  function klasea($kirola){
+    $klasea = "Ez da zehazten";
+    switch($kirola){
+      case "Areto Futbola":
+        $klasea = "P7I5";
+        break;
+      case "Saskibaloia":
+        $klasea = "P1I1";
+        break;
+      case "Squash":
+        $klasea = "P1I5";
+        break;
+      case "Igeriketa":
+        $klasea = "P2I8";
+        break;
+      case "Gimnasioa":
+        $klasea = "P1I3";
+        break;
+      case "Gimnasia Erritmikoa":
+        $klasea = "P1I2";
+        break;
+    }
+    return $klasea;
+  }
+
   $kirola = $_POST['kirola'];
   $data = $_POST['data'];
   $ordutegia = $_POST['ordutegia'];
-  $monitorea = "Peio";
-  $gela = "P7I5";
+  $monitorea = randomIzena();
+  $gela = klasea($kirola);
   
   //Kirol eta egun horretan ordu hori hartuta dagoen begiratzeko
   $ordutegiKonprobaketa = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `kirola` = '$kirola' AND `data` = '$data' AND `ordutegia` = '$ordutegia'; ");
