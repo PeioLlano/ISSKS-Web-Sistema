@@ -46,7 +46,7 @@ nav image  {
 .nav-links ul li a{ /* Egongo diren esteken tamaina, kolorea etab. aldatzeko*/
     color: grey;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .nav-links ul li::after{ /* Egongo diren esteken gainetik pasatzean azpimarra dadin*/
@@ -78,7 +78,7 @@ nav image  {
 
 .text-box p{
     margin: 10px 0px 40px; /* 10px from the top, 0px from the left and right an 40 pixel from the bottom*/ 
-    font-size: 14px;
+    font-size: 20px;
 }
 
 /* klaseak atala */

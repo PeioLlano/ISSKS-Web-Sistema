@@ -53,7 +53,7 @@ nav image {
     /* Egongo diren esteken tamaina, kolorea etab. aldatzeko*/
     color: grey;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .nav-links ul li::after {
