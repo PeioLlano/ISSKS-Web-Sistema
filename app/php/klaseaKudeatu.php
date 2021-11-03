@@ -50,14 +50,13 @@
             <form class="formularioa" id="form" method="post" action="insertElementua.php">
                 <label class="label" for="kirola">Kirola hautatu:</label>
 
-                <select class="select" name="kirola" id="kirola" required>
+                <select class="selectSartu" name="kirola" id="kirola" required>
                   <option value="Areto Futbola">Areto futbola</option>
                   <option value="Saskibaloia">Saskibaloia</option>
                   <option value="Igeriketa">Igeriketa</option>
                   <option value="Gimnasioa">Gimnasioa</option>
                   <option value="Squash">Squash</option>
                   <option value="Gimnasia Erritmikoa">Gimnasia Erritmikoa</option>
-                </select> 
                 </select> 
 
                 <br>
@@ -70,7 +69,20 @@
                 <br>
 
                 <label class="label" for="ordua">Ordua:</label>
-                <input class="ordua" type="time" id="ordutegia" name="ordutegia" required>
+                <select class="selectSartu" name="data" id="data" required>
+                  <option value="08:00-09:00">08:00-09:00</option>
+                  <option value="09:00-10:00">09:00-10:00</option>
+                  <option value="10:00-11:00">10:00-11:00</option>
+                  <option value="11:00-12:00">11:00-12:00</option>
+                  <option value="12:00-13:00">12:00-13:00</option>
+                  <option value="13:00-14:00">13:00-14:00</option>   
+                  <option value="16:00-17:00">16:00-17:00</option>
+                  <option value="17:00-18:00">17:00-18:00</option> 
+                  <option value="18:00-19:00">18:00-19:00</option> 
+                  <option value="19:00-20:00">19:00-20:00</option>
+                  <option value="20:00-21:00">20:00-21:00</option>               
+                </select> 
+
                 
                 <br>
 
@@ -87,13 +99,13 @@
             <form class="formularioa" id="form" method="post" action="deleteElementua.php">
                 <label class="labelEz" for="erreserba">Erreserba hautatu:</label>
 
-                <select class="select" name="erreserba" id="erreserba">
+                <select class="selectEgunEzab" name="erreserba" id="erreserba">
                     <?php
                         $query = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `bezeroNAN` = '" . $_SESSION['uneko_NAN'] . "' ; ");
 
                         if (mysqli_num_rows($query) > 0) {
                             while($ilara = mysqli_fetch_assoc($query)){
-                                echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . "-etan</option>";
+                                echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . " bitartean</option>";
                             }   
                         } else {
                             echo "<option value="-">Ez duzu klase erreserbaturik.</option>";
@@ -114,7 +126,7 @@
             <form class="formularioa" id="form" method="post" action="updateElementua.php">
                 <label class="label" for="kirola">Erreserba hautatu:</label>
 
-                <select class="select" name="erreserba" id="erreserba">
+                <select class="selectEgunEzab" name="erreserba" id="erreserba">
             
                     <?php
                         $query = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `bezeroNAN` = '" . $_SESSION['uneko_NAN'] . "' ; ");
@@ -134,7 +146,7 @@
                 <br>
                 <label class="label" for="kirola">Kirola hautatu:</label required>
 
-                <select class="select" name="kirola" id="kirola">
+                <select class="selectSartu" name="kirola" id="kirola">
                   <option value="Areto Futbola">Areto futbola</option>
                   <option value="Saskibaloia">Saskibaloia</option>
                   <option value="Igeriketa">Igeriketa</option>
@@ -153,8 +165,20 @@
                 <br>
 
                 <label class="label" for="ordua">Ordua:</label>
-                <input class="ordua" type="time" id="ordutegia" name="ordutegia" required>
-                
+                <select class="selectSartu" name="data" id="data" required>
+                  <option value="08:00-09:00">08:00-09:00</option>
+                  <option value="09:00-10:00">09:00-10:00</option>
+                  <option value="10:00-11:00">10:00-11:00</option>
+                  <option value="11:00-12:00">11:00-12:00</option>
+                  <option value="12:00-13:00">12:00-13:00</option>
+                  <option value="13:00-14:00">13:00-14:00</option>   
+                  <option value="16:00-17:00">16:00-17:00</option>
+                  <option value="17:00-18:00">17:00-18:00</option> 
+                  <option value="18:00-19:00">18:00-19:00</option> 
+                  <option value="19:00-20:00">19:00-20:00</option>
+                  <option value="20:00-21:00">20:00-21:00</option>               
+                </select> 
+
                 <br>
 
                 <button type="reset" class="botoia">Ezabatu</button>
