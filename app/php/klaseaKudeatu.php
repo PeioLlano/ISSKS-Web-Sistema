@@ -20,6 +20,7 @@
         <link rel="icon" type="image/png" href="https://img.icons8.com/glyph-neue/64/000000/basketball.png" />	
         <link rel="stylesheet" href="../css/styleKK.css">
         <link rel="stylesheet" href="../css/styleF.css">
+        <meta charset="UTF-8">
         <!--Letra mota aldatu ahal izateko-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +71,19 @@
                 <br>
 
                 <label class="label" for="ordua">Ordua:</label>
-                <input class="ordua" type="time" id="ordutegia" name="ordutegia" required>
+                <select class="select" id="ordutegia" name="ordutegia" required>
+                  <option value="08:00-09:00">08:00-09:00</option>
+                  <option value="09:00-10:00">09:00-10:00</option>
+                  <option value="10:00-11:00">10:00-11:00</option>
+                  <option value="11:00-12:00">11:00-12:00</option>
+                  <option value="12:00-13:00">12:00-13:00</option>
+                  <option value="13:00-14:00">13:00-14:00</option>   
+                  <option value="16:00-17:00">16:00-17:00</option>
+                  <option value="17:00-18:00">17:00-18:00</option> 
+                  <option value="18:00-19:00">18:00-19:00</option> 
+                  <option value="19:00-20:00">19:00-20:00</option>
+                  <option value="20:00-21:00">20:00-21:00</option>               
+                </select> 
                 
                 <br>
 
@@ -93,7 +106,7 @@
 
                         if (mysqli_num_rows($query) > 0) {
                             while($ilara = mysqli_fetch_assoc($query)){
-                                echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . "-etan</option>";
+                                echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . " bitartean</option>";
                             }   
                         } else {
                             echo "<option value="-">Ez duzu klase erreserbaturik.</option>";
@@ -121,7 +134,7 @@
 
                         if (mysqli_num_rows($query) > 0) {
                             while($ilara = mysqli_fetch_assoc($query)){
-                                echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . "-etan</option>";
+                                echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . " bitartean</option>";
                             }   
                         } else {
                             echo "<option value="-">Ez duzu klase erreserbaturik.</option>";
@@ -153,7 +166,19 @@
                 <br>
 
                 <label class="label" for="ordua">Ordua:</label>
-                <input class="ordua" type="time" id="ordutegia" name="ordutegia" required>
+                <select class="select" id="ordutegia" name="ordutegia" required>
+                  <option value="08:00-09:00">08:00-09:00</option>
+                  <option value="09:00-10:00">09:00-10:00</option>
+                  <option value="10:00-11:00">10:00-11:00</option>
+                  <option value="11:00-12:00">11:00-12:00</option>
+                  <option value="12:00-13:00">12:00-13:00</option>
+                  <option value="13:00-14:00">13:00-14:00</option>   
+                  <option value="16:00-17:00">16:00-17:00</option>
+                  <option value="17:00-18:00">17:00-18:00</option> 
+                  <option value="18:00-19:00">18:00-19:00</option> 
+                  <option value="19:00-20:00">19:00-20:00</option>
+                  <option value="20:00-21:00">20:00-21:00</option>               
+                </select> 
                 
                 <br>
 

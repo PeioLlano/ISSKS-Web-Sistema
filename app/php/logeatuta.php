@@ -45,12 +45,12 @@
         <section class="erregistroa">
             <form class="formularioa" id="form" method="post" action="eguneratu.php">
                 <?php
-                    echo '<input class="textBoxBakoitza" type="text" value="' . $_SESSION['uneko_izena'] .'" id="izena" name="izena" placeholder="Zure izen-abizenak sartu"><br>';
-                    echo '<input class="textBoxBakoitza" type="text" id="nan" value="' . $_SESSION['uneko_NAN'] . '" name="nan" placeholder="Zure NAN-a sartu"><br>';
-                    echo '<input class="textBoxBakoitza" type="text" id="tlf" value="' . $_SESSION['uneko_tlf'] . '" name="tlf" placeholder="Zure telefonoa sartu"><br>';
-                    echo '<input class="textBoxBakoitza" type="text" id="jaiotze" value="' . $_SESSION['uneko_jaiotze'] . '" name="jaiotze" placeholder="Zure jaiotze data sartu"><br>';
-                    echo '<input class="textBoxBakoitza" type="email" id="email" value="' . $_SESSION['uneko_email'] . '" name="email" placeholder="Zure emaila sartu"><br>';
-                    echo '<input class="textBoxBakoitza" type="password" id="pasahitza" value="' . $_SESSION['uneko_pasahitza'] . '" name="pasahitza" placeholder="Zure pasahitza sartu"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" value="' . $_SESSION['uneko_izena'] .'" id="izena" name="izena" placeholder="Zure izen-abizenak sartu (Adb: Jon Llano Fuentes)"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" id="nan" value="' . $_SESSION['uneko_NAN'] . '" name="nan" placeholder="Zure NAN-a sartu (Adb: 12345678X)"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" id="tlf" value="' . $_SESSION['uneko_tlf'] . '" name="tlf" placeholder="Zure telefonoa sartu (Adb: 654789987)"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" id="jaiotze" value="' . $_SESSION['uneko_jaiotze'] . '" name="jaiotze" placeholder="Zure jaiotze data sartu (Adb: 1943-02-02)"><br>';
+                    echo '<input class="textBoxBakoitza" type="email" id="email" value="' . $_SESSION['uneko_email'] . '" name="email" placeholder="Zure emaila sartu (Adb: fuentesllano@gmail.com)"><br>';
+                    echo '<input class="textBoxBakoitza" type="password" id="pasahitza" value="' . $_SESSION['uneko_pasahitza'] . '" name="pasahitza" placeholder="Zure pasahitza sartu (6-20 karaktere)"><br>';
                     echo '<input class="textBoxBakoitza" type="password" id="repPasahitza" value="' . $_SESSION['uneko_pasahitza'] . '" name="repPasahitza" placeholder="Zure pasahitza berriro sartu"><br>';
                     echo '<button onclick="datuakKonprobatu(event);" class="botoia">Eguneratu </button>';
                 ?>
