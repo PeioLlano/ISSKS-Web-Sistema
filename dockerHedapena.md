@@ -25,15 +25,15 @@ Agindu honen ostean "ISSKS-Web-Sistema" izeneko katalogo bat sortuko da, honako 
   
   4. Beharrezko datuak sartzeko, http://localhost:8890/ orrialdera jo eta han erabiltzailea eta pasahitza sartu (erabiltzailea: admin; pasahitza: test)
   
-  ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/d3.png)
+  ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/dockerHedapena3.png)
   
   Datuak sartu ondoren "database” sakatu eta gero “import", hor docker-lamp/database.sql fitxategia hautatu.
   
-  ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/d4.png)
+  ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/dockerHedapena4.png)
   
   5. Nahi duzun web nabigatzailea ireki eta  http://localhost:81 bilatu.
   
-  ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/d2.png)
+  ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/dockerHedapena2.png)
  
   6. Zerbitzuak eteteko, beste terminal batean, $ docker-compose down  
 
