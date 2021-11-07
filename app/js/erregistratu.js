@@ -1,3 +1,4 @@
+ //Egileak: Julen Fuentes eta Peio Llano
  function datuakKonprobatu(evt) {
      evt.preventDefault()
      if (!izenaKonprobatu(document.getElementById('izena').value)) {
@@ -19,8 +20,8 @@
          alert('Sartutako pasahitzak ez dira berdinak.');
          return;
      }
-     if(!pasahitzaKonprobatu(document.getElementById('pasahitza').value)){
-        return;
+     if (!pasahitzaKonprobatu(document.getElementById('pasahitza').value)) {
+         return;
      }
      document.getElementById('form').submit();
  }
@@ -92,13 +93,13 @@
  }
 
  function pasahitzaKonprobatu(pPasahitza) {
-    if (pPasahitza.length <= 5 || pPasahitza.length > 20) {
-        alert('Pasahitzek ez dute formatu zuzena betetzen.');
-        return false;
-    } else {
-        return true;
-    }
-}
+     if (pPasahitza.length <= 5 || pPasahitza.length > 20) {
+         alert('Pasahitzek ez dute formatu zuzena betetzen.');
+         return false;
+     } else {
+         return true;
+     }
+ }
 
  function myFunction() {
      document.getElementById("demo").innerHTML = "Hello World";
