@@ -197,10 +197,10 @@
             </div>
     
             <ul class="list">
-                <li><a href="index.html">Klaseak kudeatu</a></li>
-                <li><a href="erregistratu.html">Klaseak ikusi</a></li>
-                <li><a href="logIn.html">Nire Kontua</a></li>
-                <li><a href="guriBuruz.html">Itxi Sesioa</a></li>
+                <li><a href="klaseaKudeatu.php">Klaseak kudeatu</a></li>
+                <li><a href="klaseakIkusi.php">Klaseak ikusi</a></li>
+                <li><a href="logeatuta.php">Nire Kontua</a></li>
+                <li><a href="itxiSesioa.php">Itxi Sesioa</a></li>
             </ul>
         </section>
         <!--------------------  Footer* --------- ----------->
