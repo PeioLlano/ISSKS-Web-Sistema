@@ -1,4 +1,9 @@
 <?php
+  /*Egileak:
+            Julen Fuentes
+            Peio Llano
+  */
+
   // datu basera konektatu;
   $hostname = "db";
   $username = "admin";

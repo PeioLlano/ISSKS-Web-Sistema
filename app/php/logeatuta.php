@@ -1,4 +1,10 @@
-<?php session_start(); // erregistroan edo sesio hasieran sortu den sesioan sartzeko; ?>
+<?php 
+    /*Egileak:
+            Julen Fuentes
+            Peio Llano
+    */
+
+    session_start(); // erregistroan edo sesio hasieran sortu den sesioan sartzeko; ?>
 <!DOCTYPE html>
 <html>
     <head>
