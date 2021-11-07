@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); // erregistroan edo sesio hasieran sortu den sesioan sartzeko; ?>
 <!DOCTYPE html>
 <html>
     <head>

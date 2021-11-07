@@ -1,5 +1,5 @@
 <?php
-  // phpinfo();
+  // datu basera konektatu;
   $hostname = "db";
   $username = "admin";
   $password = "test";
@@ -10,6 +10,7 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
+    // erregistroan edo sesio hasieran sortu den sesioan sartzeko;
   session_start();
 ?>
 <!DOCTYPE html>
