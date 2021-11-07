@@ -23,7 +23,7 @@
   $nanOndo=1;
   if($nan != $_SESSION['uneko_NAN']){
     $nanKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `NAN`='$nan'; ");
-    if(!empty($nanKonprobaketa)){
+    if(mysqli_num_rows($nanKonprobaketa) != 0){
       $nanOndo = 0;
       echo"<script>alert('NAN aldatu duzu, baina NAN berria dagoneko sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
     }
@@ -33,7 +33,7 @@
   $tlfOndo = 1;
   if($tlf != $_SESSION['uneko_tlf']){
     $tlfKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `telefonoa`='$tlf'; ");
-    if(!empty($tlfKonprobaketa)){
+    if(mysqli_num_rows($tlfKonprobaketa) != 0){
       $tlfOndo = 0;
       echo"<script>alert('Telefonoa aldatu duzu, baina telefono berria dagoneko sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
     }
@@ -43,7 +43,7 @@
   $emailOndo = 1;
   if($email != $_SESSION['uneko_email']){
     $emailKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `email`='$email'; ");
-    if(!empty($emailKonprobaketa)){
+    if(mysqli_num_rows($emailKonprobaketa) != 0){
       $emailOndo = 0;
       echo"<script>alert('Emaila aldatu duzu, baina email berria dagoneko sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
     }

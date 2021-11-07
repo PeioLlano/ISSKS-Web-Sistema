@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 20-10-2021 a las 16:48:17
+-- Tiempo de generación: 07-11-2021 a las 12:04:55
 -- Versión del servidor: 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- Versión de PHP: 7.4.20
 
@@ -64,14 +64,12 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-/*--------------------------------------------------------------------------------------------------------------------------------*/
-
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 03-11-2021 a las 17:48:54
+-- Tiempo de generación: 07-11-2021 a las 12:05:27
 -- Versión del servidor: 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- Versión de PHP: 7.4.20
 
@@ -158,7 +156,7 @@ ALTER TABLE `elementua`
 -- Filtros para la tabla `elementua`
 --
 ALTER TABLE `elementua`
-  ADD CONSTRAINT `bezeroNAN` FOREIGN KEY (`bezeroNAN`) REFERENCES `bezeroa` (`NAN`);
+  ADD CONSTRAINT `bezeroNAN` FOREIGN KEY (`bezeroNAN`) REFERENCES `bezeroa` (`NAN`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
