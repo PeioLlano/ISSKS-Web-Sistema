@@ -1,5 +1,5 @@
 <?php
-  // phpinfo();
+  // datu basera konektatu;
   $hostname = "db";
   $username = "admin";
   $password = "test";
@@ -10,8 +10,10 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
+  // erregistroan edo sesio hasieran sortu den sesioan sartzeko;
   session_start();
 
+  // form-etik sartu diren datuak gordetzeko
   $izena = $_POST['izena'];
   $nan = $_POST['nan'];
   $tlf = $_POST['tlf'];
@@ -49,12 +51,16 @@
     }
   }
 
+  // unique datuak ez badaude errepikatuta
   if($nanOndo AND $tlfOndo AND $emailOndo){
+    //datuak eguneratu
     $query = mysqli_query($conn, "UPDATE `bezeroa` SET `izenAbizenak` = '$izena', `NAN` = '$nan', `telefonoa` = '$tlf', `jaiotzeData` = '$jaiotze', `email` = '$email', `pasahitza` = '$pasahitza' WHERE `bezeroa`.`NAN` = '". $_SESSION['uneko_NAN'] ."';  ");
+    //errorerik dagoen konprobatu
     if(!$query){
       echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
     }
     else{
+      //errorerik ez badaude, sesio aldagaiak eguneratu eta leku berdinera bueltatu
       $_SESSION['uneko_izena'] = $izena;
       $_SESSION['uneko_NAN'] = $nan;
       $_SESSION['uneko_tlf'] = $tlf;

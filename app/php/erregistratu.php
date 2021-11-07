@@ -1,5 +1,5 @@
 <?php
-  // phpinfo();
+  // datu basera konektatu;
   $hostname = "db";
   $username = "admin";
   $password = "test";
@@ -10,8 +10,10 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
+  // sesioa lehenengo aldiz hasi
   session_start();
 
+  // form-etik sartu diren datuak gordetzeko
   $izena = $_POST['izena'];
   $nan = $_POST['nan'];
   $tlf = $_POST['tlf'];
@@ -24,7 +26,7 @@
     echo '<b>Zure datuak hurrengoak dira</b>: <br>' . $izena . '<br> ' . $nan . '<br> ' . $tlf . '<br> ' . $jaiotze . '<br> ' . $email. '<br> ' . $pasahitza ;
   }*/
   
-
+  //NAN-a, email-a eta telefonoa dagoneko sartuta dauden begiratzeko
   $nanKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE NAN = '$nan'; ");
   $nanSartuta = 1;
   $tlfKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE telefonoa = '$tlf'; ");
@@ -52,13 +54,16 @@
     echo"<script>alert('Errore bat egon da!! Dagoneko email hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
   }
 
+  // unique datuak ez badaude errepikatuta
   if(!$nanSartuta AND !$tlfSartuta AND !$emailSartuta){
+    //datuak sartu
     $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza'); ");   
+    //errorerik dagoen konprobatu
     if(!$query){
       echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error. "<br>";
     }
     else{
-      //echo"datos guardado correctamente","<meta http-equiv='refresh' content='0; url=logeatuta.php' />";
+      //errorerik ez badaude, sesio aldagaiak sartu eta logeatuen bistara pasatu
       $_SESSION['uneko_izena'] = $izena;
       $_SESSION['uneko_NAN'] = $nan;
       $_SESSION['uneko_tlf'] = $tlf;
