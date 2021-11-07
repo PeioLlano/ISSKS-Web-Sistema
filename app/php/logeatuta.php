@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!--Web orriaren hainbat datu (izenburua, logoa) itxura emateko script-ak eta 
+        datuen formatua egokia dela egiaztatzeko script-a-->
         <script language="JavaScript" type="text/javascript" src="../js/erregistratu.js"></script>
         <meta name="viewport" content="with=device-width, initial-scale=1.0">
         <title>JP Polikiroldegia</title>
@@ -13,10 +15,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet"> 
-        <!--Letra mota aldatu ahal izateko-->
+        <!--Footer-ean erabili diren logoak erabiltzeko-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+        <!--Web orriaren goialdean agertzen den menua sortzeko-->
         <section class="header">
             <nav>
                 <a href="../index.html"><img src="../images/logo.png" alt='JP kiroldegiko logoa.'></a>
@@ -29,7 +32,7 @@
                     </ul>
                 </div>
             </nav>
-
+        <!--Testu-eremuen gainean ageri den testua idazteko-->
             <div class="text-box">
                 <?php
                     if(isset($_SESSION['uneko_izena'])){
@@ -42,6 +45,8 @@
                 ?>
             </div>
         </section>
+        <!--Bete beharreko testu-eremuak eta botoiak sortzeko. Informazioa "erregistratu.php" fitxategira bidaliko da
+        eta datuen baliozkotasuna egiaztatzeko "datuakKonprobatu" funtzioa erabiliko da.-->
         <section class="erregistroa">
             <form class="formularioa" id="form" method="post" action="eguneratu.php">
                 <?php
@@ -56,7 +61,7 @@
                 ?>
             </form>
         </section>
-        <!--------------------  Footer* --------- ----------->
+        <!--------------------  Footer* --------------------->
         <section class="footer">
             <div class="social">
                 <a href=""><i class="fab fa-instagram"></i></a>
@@ -73,6 +78,6 @@
                 <li><a href="itxiSesioa.php">Itxi Sesioa</a></li>
             </ul>
         </section>
-        <!--------------------  Footer* --------- ----------->
+        <!--------------------  Footer* --------------------->
 	</body>
 </html>

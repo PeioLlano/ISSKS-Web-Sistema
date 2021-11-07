@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <!--Web orriaren hainbat datu (izenburua, logoa) eta itxura emateko script-ak-->
         <meta name="viewport" content="with=device-width, initial-scale=1.0">
         <title>JP Polikiroldegia</title>
         <link rel="icon" type="image/png" href="https://img.icons8.com/glyph-neue/64/000000/basketball.png" />	
@@ -25,10 +26,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet"> 
-        <!--Letra mota aldatu ahal izateko-->
+        <!--Footer-ean erabili diren logoak erabiltzeko-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+    <!--Web orriaren goialdean agertzen den menua sortzeko-->
         <section class="header">
             <nav>
                 <a href="../index.html"><img src="../images/logo.png" alt='JP kiroldegiko logoa.'></a>
@@ -41,12 +43,13 @@
                     </ul>
                 </div>
             </nav>
-
+        <!--Bete beharreko eremuen gainean ageri den testua idazteko (Klaseak Sartu)-->
             <div class="text-box">
                 <h1>Klaseak Sartu</h1>
                 <p> Hemen nahi dituzun erreserbak osatu ahalko dituzu.</p>
             </div>
         </section>
+        <!--Bete beharreko eremuak eta botoiak sortzeko-->
         <section class="sartu">
             <form class="formularioa" id="form" method="post" action="insertElementua.php">
                 <label class="label" for="kirola">Kirola hautatu:</label>
@@ -91,12 +94,13 @@
                 <button class="botoia">Erreserbatu </button>
             </form>
         </section>
-
+        <!--Bete beharreko eremuen gainean ageri den testua idazteko (Klaseak Ezabatu)-->
         <section class="ezabatu">
             <div class="ezabatu_goiburu">
                     <h1>Klaseak Kendu</h1>
                     <p> Hemen nahi dituzun erreserbak kendu ahalko dituzu.</p>
             </div>
+        <!--Bete beharreko eremuak eta botoiak sortzeko-->
             <form class="formularioa" id="form" method="post" action="deleteElementua.php">
                 <label class="labelEz" for="erreserba">Erreserba hautatu:</label>
 
@@ -119,11 +123,13 @@
                 <button class="botoia">Erreserba kendu </button>
             </form>
         </section>
+        <!--Bete beharreko eremuen gainean ageri den testua idazteko (Klaseak Eguneratu)-->
         <section class="eguneratu">
             <div class="eguneratu_goiburu">
                     <h1>Klaseak Eguneratu</h1>
                     <p> Hemen nahi dituzun erreserbak eguneratu ahalko dituzu.</p>
             </div>
+        <!--Bete beharreko eremuak eta botoiak sortzeko-->
             <form class="formularioa" id="form" method="post" action="updateElementua.php">
                 <label class="label" for="kirola">Erreserba hautatu:</label>
 
@@ -186,7 +192,7 @@
                 <button class="botoia">Eguneratu </button>
             </form>
         </section>
-        <!--------------------  Footer* --------- ----------->
+        <!--------------------  Footer* --------------------->
         <section class="footer">
             <div class="social">
                 <a href=""><i class="fab fa-instagram"></i></a>
@@ -203,6 +209,6 @@
                 <li><a href="itxiSesioa.php">Itxi Sesioa</a></li>
             </ul>
         </section>
-        <!--------------------  Footer* --------- ----------->
+        <!--------------------  Footer* --------------------->
 	</body>
 </html>

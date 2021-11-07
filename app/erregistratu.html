@@ -2,23 +2,27 @@
 <html>
 
 <head>
+    <!--Web orriaren hainbat datu (izenburua, logoa) itxura emateko script-ak eta 
+    datuen formatua egokia dela egiaztatzeko script-a-->
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <title>JP Polikiroldegia</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/glyph-neue/64/000000/basketball.png" />
     <link rel="stylesheet" href="css/styleE&LI.css">
     <link rel="stylesheet" href="css/styleF.css">
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <script language="JavaScript" type="text/javascript" src="js/erregistratu.js"></script>
     <!--Letra mota aldatu ahal izateko-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
-    <!--Letra mota aldatu ahal izateko-->        
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Footer-ean erabili diren logoak erabiltzeko-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 
 </head>
 
 <body>
+    <!--Web orriaren goialdean agertzen den menua sortzeko-->
     <section class="header">
         <nav>
             <a href="index.html"><img src="images/logo.png" alt='JP kiroldegiko logoa.'></a>
@@ -31,12 +35,14 @@
                 </ul>
             </div>
         </nav>
-
+        <!--Testu-eremuen gainean ageri den testua idazteko-->
         <div class="text-box">
             <h1>Erregistratu</h1>
             <p> Sartu zure datuak erregistroa betetzeko.</p>
         </div>
     </section>
+    <!--Bete beharreko testu-eremuak eta botoiak sortzeko. Informazioa "erregistratu.php" fitxategira bidaliko da
+    eta datuen baliozkotasuna egiaztatzeko "datuakKonprobatu" funtzioa erabiliko da.-->
     <section class="erregistroa">
         <form class="formularioa" id="form" method="post" action="php/erregistratu.php">
             <input class="textBoxBakoitza" type="text" id="izena" name="izena" placeholder="Zure izen-abizenak sartu (Adb: Jon Llano Fuentes)"><br>
@@ -50,25 +56,25 @@
             <button onclick="datuakKonprobatu(event);" class="botoia">Izena eman </button>
         </form>
     </section>
-</section>
-<!--------------------  Footer* --------- ----------->
-<section class="footer">
-    <div class="social">
-        <a href=""><i class="fab fa-instagram"></i></a>
-        <a href=""><i class="fab fa-twitter"></i></a>
-        <a href=""><i class="fab fa-snapchat"></i></a>
-        <a href=""><i class="fab fa-facebook"></i></a>
-        <a href=""><i class="fab fa-linkedin"></i></a>
-    </div>
+    </section>
+    <!--------------------  Footer* --------------------->
+    <section class="footer">
+        <div class="social">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-snapchat"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""><i class="fab fa-linkedin"></i></a>
+        </div>
 
-    <ul class="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="erregistratu.html">Erregistratu</a></li>
-        <li><a href="logIn.html">LogIn</a></li>
-        <li><a href="guriBuruz.html">Guri Buruz</a></li>
-    </ul>
-</section>
-<!--------------------  Footer* --------- ----------->
+        <ul class="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="erregistratu.html">Erregistratu</a></li>
+            <li><a href="logIn.html">LogIn</a></li>
+            <li><a href="guriBuruz.html">Guri Buruz</a></li>
+        </ul>
+    </section>
+    <!--------------------  Footer* --------------------->
 </body>
 
 </html>

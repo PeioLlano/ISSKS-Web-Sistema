@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <!--Web orriaren hainbat datu (izenburua, logoa) eta itxura emateko script-ak-->
         <meta name="viewport" content="with=device-width, initial-scale=1.0">
         <title>JP Polikiroldegia</title>
         <link rel="icon" type="image/png" href="https://img.icons8.com/glyph-neue/64/000000/basketball.png" />	
@@ -24,10 +25,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet"> 
-        <!--Letra mota aldatu ahal izateko-->
+        <!--Footer-ean erabili diren logoak erabiltzeko-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+    <!--Web orriaren goialdean agertzen den menua sortzeko-->        
         <section class="header">
             <nav>
                 <a href="../index.html"><img src="../images/logo.png" alt='JP kiroldegiko logoa.'></a>
@@ -40,15 +42,15 @@
                     </ul>
                 </div>
             </nav>
-
+        <!--Erreserbatutako klaseen taularen gainean ageri den testua idazteko-->
             <div class="text-box">
                 <h1>Klaseak Ikusi</h1>
                 <p> Hemen erreserbatuta dituzun klaseak ikusi ahal izango dituzu.</p>
             </div>
         </section>
         
+        <!--Taula dinamikoki sortzeko, bezeroak dituen klaseen araberakoa-->
         <section class="erreserbaZer">
-            <!--<table border=2px>-->
             <table>
                 <?php
                     //Uneko erabiltzaileak dituen erreserbak pantailaratzeko
@@ -87,7 +89,7 @@
                 ?>            
             </table>   
         </section>
-        <!--------------------  Footer* --------- ----------->
+        <!--------------------  Footer* --------------------->
         <section class="footer">
             <div class="social">
                 <a href=""><i class="fab fa-instagram"></i></a>
@@ -104,6 +106,6 @@
                 <li><a href="itxiSesioa.php">Itxi Sesioa</a></li>
             </ul>
         </section>
-        <!--------------------  Footer* --------- ----------->
+        <!--------------------  Footer* --------------------->
 	</body>
 </html>
