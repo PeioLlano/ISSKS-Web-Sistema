@@ -30,7 +30,7 @@
     <body>
         <section class="header">
             <nav>
-                <a href="../index.html"><img src="../images/logo.png" ></a>
+                <a href="../index.html"><img src="../images/logo.png" alt='JP kiroldegiko logoa.'></a>
                 <div class="nav-links">
                     <ul>
                         <li><a href="klaseaKudeatu.php">Klaseak kudeatu</a></li>
@@ -81,7 +81,7 @@
                     }
                     else{
                         echo"<p>Ez duzu klase erreserbaturik, nahi izatekotan joan klaseak kudeatu atalera eta klaseak klaseak erreserbatu.</p>";
-                        echo"<img src='../images/arazoLogoa.webp' width=400px height=400px>";
+                        echo"<img src='../images/arazoLogoa.webp' alt='Arazo irudia.' width=400px height=400px>";
                     }
                     
                 ?>            

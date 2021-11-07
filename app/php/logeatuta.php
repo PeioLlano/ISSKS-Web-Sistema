@@ -19,7 +19,7 @@
     <body>
         <section class="header">
             <nav>
-                <a href="../index.html"><img src="../images/logo.png" ></a>
+                <a href="../index.html"><img src="../images/logo.png" alt='JP kiroldegiko logoa.'></a>
                 <div class="nav-links">
                     <ul>
                         <li><a href="klaseaKudeatu.php">Klaseak kudeatu</a></li>
