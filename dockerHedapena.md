@@ -31,9 +31,11 @@ Agindu honen ostean "ISSKS-Web-Sistema" izeneko katalogo bat sortuko da, honako 
   
   ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/dockerHedapena4.png)
   
+  
   5. Nahi duzun web nabigatzailea ireki eta  http://localhost:81 bilatu.
   
   ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/dockerHedapena2.png)
+  
  
   6. Zerbitzuak eteteko beste terminal batean honako agindua egikaritu:
   
