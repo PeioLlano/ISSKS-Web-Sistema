@@ -35,7 +35,9 @@ Agindu honen ostean "ISSKS-Web-Sistema" izeneko katalogo bat sortuko da, honako 
   
   ![](https://github.com/PeioLlano/ISSKS-Web-Sistema/blob/main/app/images/dockerHedapena2.png)
  
-  6. Zerbitzuak eteteko, beste terminal batean, $ docker-compose down  
+  6. Zerbitzuak eteteko beste terminal batean honako agindua egikaritu:
+  
+  `$ docker-compose down `
 
 
   
