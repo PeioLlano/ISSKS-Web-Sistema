@@ -63,7 +63,20 @@
   // unique datuak ez badaude errepikatuta
   if(!$nanSartuta AND !$tlfSartuta AND !$emailSartuta){
     //datuak sartu
-    $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitza'); ");   
+    $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
+    $randStringLen = 16;
+
+    $randString = "";
+    for ($i = 0; $i < $randStringLen; $i++) {
+        $randString .= $charset[mt_rand(0, strlen($charset) - 1)];
+    }
+
+    $opciones = [
+      'salt' => $randString
+    ];
+    $pasahitzaHash = $randString.$pasahitza.$randString;
+    $pasahitzaHash = hash("sha512", $pasahitzaHash);
+    $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`, `salt`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitzaHash', '$randString'); ");   
     //errorerik dagoen konprobatu
     if(!$query){
       echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error. "<br>";
