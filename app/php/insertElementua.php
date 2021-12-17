@@ -59,16 +59,32 @@
   $gela = klasea($kirola);
   
   //Kirol eta egun horretan ordu hori hartuta dagoen begiratzeko
-  $ordutegiKonprobaketa = mysqli_query($conn, "SELECT * FROM `elementua` WHERE `kirola` = '$kirola' AND `data` = '$data' AND `ordutegia` = '$ordutegia'; ");
-  if(mysqli_num_rows($ordutegiKonprobaketa) == 0){
+  $ordutegiKonprobaketa = $conn->prepare("SELECT * FROM `elementua` WHERE `kirola` = ? AND `data` = ? AND `ordutegia` = ?; ");
+  $ordutegiKonprobaketa->bind_param('sss', $kirola, $data, $ordutegia);
+  $ordutegiKonprobaketa->execute();
+
+  $resultOrdutegia = $ordutegiKonprobaketa->get_result();
+
+  if(mysqli_num_rows($resultOrdutegia) == 0){
     //5 elementu dituen begiratzeko
-    $elemKonprobaketa = mysqli_query($conn, "SELECT COUNT(*) FROM `elementua` WHERE `bezeroNAN`='" . $_SESSION['uneko_NAN'] . "'; ");
-    $unekoIlara = mysqli_fetch_array($elemKonprobaketa);
+    $elemKonprobaketa = $conn->prepare("SELECT COUNT(*) FROM `elementua` WHERE `bezeroNAN`=?; ");
+    $elemKonprobaketa->bind_param('s',$_SESSION['uneko_NAN']);
+    $elemKonprobaketa->execute();
+
+    $elemKonprobaketaResult = $elemKonprobaketa->get_result();
+
+
+    $unekoIlara = mysqli_fetch_array($elemKonprobaketaResult);
     //5 elementu baino gutxiago badaude, elementua sartuko du
     if($unekoIlara['COUNT(*)'] < 5){
-      $query = mysqli_query($conn, "INSERT INTO `elementua`(`kirola`, `data`, `ordutegia`, `monitorea`, `gela`, `bezeroNAN`) VALUES ('$kirola','$data','$ordutegia','$monitorea','$gela','". $_SESSION['uneko_NAN'] ."'); ");
+      $query = $conn->prepare("INSERT INTO `elementua`(`kirola`, `data`, `ordutegia`, `monitorea`, `gela`, `bezeroNAN`) VALUES (?,?,?,?,?,?); ");
+      $query->bind_param('ssssss', $kirola,$data,$ordutegia,$monitorea,$gela, $_SESSION['uneko_NAN']);
+      $query->execute();
+
+      $result = $query->get_result();
+
       //errorea badago errorea imprimatu
-      if(!$query){
+      if(!$result = " "){
         echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
       }
       //errorerik ez badago leku berdinera bueltatu

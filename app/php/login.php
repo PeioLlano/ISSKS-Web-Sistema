@@ -23,12 +23,21 @@
   $pasahitza = $_POST['pasahitza'];
 
   //sartutako parametroak datu basean dauden parametroetako batekin bat egiten duten konprobatu
-  $query = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `email` = '$email'; ");
-  $ilara = mysqli_num_rows($query);
+  //$query = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE `email` = '$email'; ");
+  $query = $conn->prepare("SELECT * FROM `bezeroa` WHERE `email` = ?; ");
+  $query->bind_param('s', $email);
+  $query->execute();
+
+  $result = $query->get_result();
+
+  $ilaraKop = mysqli_num_rows($result);
+  //echo $ilaraKop. "<br>";
 
   //bat egitekotan ilara bat izango du eta ilara horretarako
-  if($ilara){
-    $unekoIlara = mysqli_fetch_array( $query );
+  if($ilaraKop){
+    $unekoIlara = mysqli_fetch_array( $result );
+    //$unekoilara = $result->fetch_assoc();
+    //echo $unekoIlara. "<br>";
 
     if(hash("sha512", $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) == $unekoIlara['pasahitza']){
           // sesio aldagaiak sartu
@@ -47,7 +56,7 @@
     mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` = '$eguna' AND `ordutegia` < '$ordua' ; ");
     header("Location: logeatuta.php");
     } else{
-        echo hash('sha512', $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) . " " .$unekoIlara['pasahitza'];
+        //echo hash('sha512', $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) . " <br> " .$unekoIlara['pasahitza'];
 
 
     }
@@ -59,6 +68,6 @@
     echo"<meta http-equiv='refresh' content='0; url=../logIn.html' />";
   }
 
-  mysqli_free_result($query);
+  mysqli_free_result($result);
 
 ?>

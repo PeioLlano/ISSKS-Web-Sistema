@@ -33,27 +33,42 @@
   }*/
   
   //NAN-a, email-a eta telefonoa dagoneko sartuta dauden begiratzeko
-  $nanKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE NAN = '$nan'; ");
+  $nanKonprobaketa = $conn->prepare("SELECT * FROM `bezeroa` WHERE NAN = ?; ");
+  $nanKonprobaketa->bind_param('s', $nan);
+  $nanKonprobaketa->execute();
+  $resultnan = $nanKonprobaketa->get_result();
+
   $nanSartuta = 1;
-  $tlfKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE telefonoa = '$tlf'; ");
+
+  $tlfKonprobaketa = $conn->prepare("SELECT * FROM `bezeroa` WHERE telefonoa = ?; ");
+  $tlfKonprobaketa->bind_param('s', $tlf);
+  $tlfKonprobaketa->execute();
+  $resulttlf = $tlfKonprobaketa->get_result();
+
   $tlfSartuta = 1;
-  $emailKonprobaketa = mysqli_query($conn, "SELECT * FROM `bezeroa` WHERE email = '$email'; ");
+
+  $emailKonprobaketa = $conn->prepare("SELECT * FROM `bezeroa` WHERE email = ?; ");
+  $emailKonprobaketa->bind_param('s', $email);
+  $emailKonprobaketa->execute();
+  $resultemail = $emailKonprobaketa->get_result();
+
   $emailSartuta = 1;
-  if(mysqli_num_rows($nanKonprobaketa) == 0){
+
+  if(mysqli_num_rows($resultnan) == 0){
     $nanSartuta = 0;
   }
   else{
     echo"<script>alert('Errore bat egon da!! Dagoneko NAN hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
   }
 
-  if(mysqli_num_rows($tlfKonprobaketa) == 0){
+  if(mysqli_num_rows($resulttlf) == 0){
     $tlfSartuta = 0;
   }
   else{
     echo"<script>alert('Errore bat egon da!! Dagoneko telefono hori sartuta dago')</script>","<meta http-equiv='refresh' content='0; url=../erregistratu.html' />";
   }
 
-  if(mysqli_num_rows($emailKonprobaketa) == 0){
+  if(mysqli_num_rows($resultemail) == 0){
     $emailSartuta = 0;
   }
   else{
@@ -76,10 +91,15 @@
     ];
     $pasahitzaHash = $randString.$pasahitza.$randString;
     $pasahitzaHash = hash("sha512", $pasahitzaHash);
-    $query = mysqli_query($conn, "INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`, `salt`) VALUES ('$izena','$nan','$tlf','$jaiotze','$email','$pasahitzaHash', '$randString'); ");   
+    $query = $conn->prepare("INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`, `salt`) VALUES (?,?,?,?,?,?,?); ");   
+    $query->bind_param('sssssss', $izena,$nan,$tlf,$jaiotze,$email,$pasahitzaHash,$randString);
+    $query->execute();
+    $result = $query->get_result();
+
     //errorerik dagoen konprobatu
-    if(!$query){
-      echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error. "<br>";
+    if($result == " "){
+      //echo $result;
+      //echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
     }
     else{
       //errorerik ez badaude, sesio aldagaiak sartu eta logeatuen bistara pasatu

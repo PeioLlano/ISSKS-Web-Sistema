@@ -119,7 +119,7 @@
                                 echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . " bitartean</option>";
                             }   
                         } else {
-                            echo "<option value="-">Ez duzu klase erreserbaturik.</option>";
+                            echo "<option value=' '>Ez duzu klase erreserbaturik.</option>";
                         }
                     ?>
                 </select> 
@@ -149,7 +149,7 @@
                                 echo "<option value='" . $ilara["kirola"] . ", Data:" . $ilara["data"] . ", Ordua:". $ilara["ordutegia"] . ".'>" . $ilara["kirola"] . " --> " . $ilara["data"] . "-ean ". $ilara["ordutegia"] . " bitartean</option>";
                             }   
                         } else {
-                            echo "<option value="-">Ez duzu klase erreserbaturik.</option>";
+                            echo "<option value=' '>Ez duzu klase erreserbaturik.</option>";
                         }
                     ?>
                 </select>
