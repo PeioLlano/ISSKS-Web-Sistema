@@ -20,12 +20,12 @@
   session_start();
 
   // form-etik sartu diren datuak gordetzeko
-  $izena = $_POST['izena'];
-  $nan = $_POST['nan'];
-  $tlf = $_POST['tlf'];
-  $jaiotze = $_POST['jaiotze'];
-  $email = $_POST['email'];
-  $pasahitza = $_POST['pasahitza'];
+  $izena = htmlspecialchars($_POST['izena']);
+  $nan = htmlspecialchars($_POST['nan']);
+  $tlf = htmlspecialchars($_POST['tlf']);
+  $jaiotze = htmlspecialchars($_POST['jaiotze']);
+  $email = htmlspecialchars($_POST['email']);
+  $pasahitza = htmlspecialchars($_POST['pasahitza']);
 
   /*if ( isset( $_POST['izena'] ) ) { // retrieve the form data by using the element's name attributes value as key $firstname = $_POST['firstname']; $lastname = $_POST['lastname']; // display the results
     echo '<h3>Form POST Method</h3>'; 
@@ -95,11 +95,10 @@
     $query->bind_param('sssssss', $izena,$nan,$tlf,$jaiotze,$email,$pasahitzaHash,$randString);
     $query->execute();
     $result = $query->get_result();
-
     //errorerik dagoen konprobatu
     if($result != ""){
       //echo $result;
-      //echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
+      echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
     }
     else{
       //errorerik ez badaude, sesio aldagaiak sartu eta logeatuen bistara pasatu
@@ -110,6 +109,11 @@
       $_SESSION['uneko_email'] = $email;
       $_SESSION['uneko_pasahitza'] = $pasahitza;
       header("Location: logeatuta.php");
+      // echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
+      // echo "Izena:" . $izena . "<br>";
+      // echo strlen($izena) . "<br>";
+      // echo "Email:" . $email;
+      // header("Refresh:5; url=http://localhost:81/php/logeatuta.php", true, 303);
     }
   }
 ?>
