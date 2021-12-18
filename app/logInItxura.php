@@ -1,3 +1,21 @@
+<?php
+ 
+    session_start();
+    
+    // At the top of page right after session_start();
+    if (isset($_SESSION["locked"]))
+    {
+        $difference = time() - $_SESSION["locked"];
+        if ($difference > 10)
+        {
+            unset($_SESSION["locked"]);
+            unset($_SESSION["login_attempts"]);
+            header("Refresh:0"); //esto lo he puesto yo, pero creo que no tiene porque dar problemas
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <!--Egileak: Julen Fuentes eta Peio Llano-->
@@ -28,7 +46,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="erregistratu.html">Erregistratu</a></li>
-                    <li><a href="logIn.html">Log In</a></li>
+                    <li><a href="logInItxura.php">Log In</a></li>
                     <li><a href="guriBuruz.html">Guri buruz</a></li>
                 </ul>
             </div>
@@ -44,8 +62,16 @@
         <form class="formularioa" id="form" method="post" action="php/login.php">
             <input class="textBoxBakoitza" type="email" name="email" placeholder="Zure emaila sartu"><br>
             <input class="textBoxBakoitza" type="password" name="pasahitza" placeholder="Zure pasahitza sartu"><br>
-            <button type="reset" class="botoia">Ezabatu</button>
-            <button type="submit" class="botoia">Sartu </button>
+            <?php 
+            
+            if ($_SESSION["login_attemps"]>2){
+                $_SESSION["locked"] = time();
+                echo "<p> Itxaron 10 segundo mesedez. </p>";
+            }else{
+            ?>
+                <button type="reset" class="botoia">Ezabatu</button>
+                <button type="submit" class="botoia">Sartu </button>
+            <?php } ?>
         </form>
     </section>
     <!--------------------  Footer* --------------------->
@@ -61,7 +87,7 @@
         <ul class="list">
             <li><a href="index.html">Home</a></li>
             <li><a href="erregistratu.html">Erregistratu</a></li>
-            <li><a href="logIn.html">LogIn</a></li>
+            <li><a href="logInItxura.php">LogIn</a></li>
             <li><a href="guriBuruz.html">Guri Buruz</a></li>
         </ul>
     </section>
