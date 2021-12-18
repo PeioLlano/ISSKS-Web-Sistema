@@ -18,8 +18,6 @@
   // sesioa lehenengo aldiz hasi
   session_start();
 
-
-
   // form-etik sartu diren datuak gordetzeko
   $email = $_POST['email'];
   $pasahitza = $_POST['pasahitza'];
@@ -42,27 +40,24 @@
     //echo $unekoIlara. "<br>";
 
     if(hash("sha512", $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) == $unekoIlara['pasahitza']){
-      // sesio aldagaiak sartu
-      session_destroy();
-      session_start();
+          // sesio aldagaiak sartu
+    $_SESSION['uneko_izena'] = $unekoIlara['izenAbizenak'];
+    $_SESSION['uneko_NAN'] = $unekoIlara['NAN'];
+    $_SESSION['uneko_tlf'] = $unekoIlara['telefonoa'];
+    $_SESSION['uneko_jaiotze'] = $unekoIlara['jaiotzeData'];
+    $_SESSION['uneko_email'] = $unekoIlara['email'];
+    $_SESSION['uneko_pasahitza'] = $pasahitza;
 
-      $_SESSION['uneko_izena'] = $unekoIlara['izenAbizenak'];
-      $_SESSION['uneko_NAN'] = $unekoIlara['NAN'];
-      $_SESSION['uneko_tlf'] = $unekoIlara['telefonoa'];
-      $_SESSION['uneko_jaiotze'] = $unekoIlara['jaiotzeData'];
-      $_SESSION['uneko_email'] = $unekoIlara['email'];
-      $_SESSION['uneko_pasahitza'] = $pasahitza;
-
-      // momentuko data baino lehenago diren erreserbak datu basetik ezabatu
-      $gaur=getdate();
-      $eguna = $gaur['year'] . "-" . $gaur['mon'] . "-" . $gaur['mday'];
-      $ordua = $gaur['hours']+2 . ":" . $gaur['minutes'];
-      mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` < '$eguna' ; ");
-      mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` = '$eguna' AND `ordutegia` < '$ordua' ; ");
-      header("Location: logeatuta.php");
+    // momentuko data baino lehenago diren erreserbak datu basetik ezabatu
+    $gaur=getdate();
+    $eguna = $gaur['year'] . "-" . $gaur['mon'] . "-" . $gaur['mday'];
+    $ordua = $gaur['hours']+2 . ":" . $gaur['minutes'];
+    mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` < '$eguna' ; ");
+    mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` = '$eguna' AND `ordutegia` < '$ordua' ; ");
+    header("Location: logeatuta.php");
     } else{
         //echo hash('sha512', $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) . " <br> " .$unekoIlara['pasahitza'];
-        $_SESSION["login_attempts"] += 1;
+
 
     }
 
