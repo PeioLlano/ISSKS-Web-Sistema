@@ -97,7 +97,7 @@
     $result = $query->get_result();
 
     //errorerik dagoen konprobatu
-    if($result == " "){
+    if($result != ""){
       //echo $result;
       //echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
     }

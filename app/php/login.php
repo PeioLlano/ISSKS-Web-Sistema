@@ -38,7 +38,6 @@
     $unekoIlara = mysqli_fetch_array( $result );
     //$unekoilara = $result->fetch_assoc();
     //echo $unekoIlara. "<br>";
-
     if(hash("sha512", $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) == $unekoIlara['pasahitza']){
           // sesio aldagaiak sartu
     $_SESSION['uneko_izena'] = $unekoIlara['izenAbizenak'];
@@ -57,7 +56,8 @@
     header("Location: logeatuta.php");
     } else{
         //echo hash('sha512', $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) . " <br> " .$unekoIlara['pasahitza'];
-
+        echo"<script language='javascript'>alert('Saio-hasiera baliogabea, saiatu berriz, mesedez.');</script>";
+        echo"<meta http-equiv='refresh' content='0; url=../logIn.html' />";
 
     }
 
