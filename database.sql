@@ -33,7 +33,7 @@ CREATE TABLE `bezeroa` (
   `telefonoa` int(9) NOT NULL,
   `jaiotzeData` date NOT NULL,
   `email` varchar(30) NOT NULL,
-  `pasahitza` varchar(100) NOT NULL,
+  `pasahitza` varchar(255) NOT NULL,
   `salt` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
