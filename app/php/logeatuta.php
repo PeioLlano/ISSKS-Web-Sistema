@@ -5,13 +5,13 @@
     */
     session_start();
 
-    if(isset($_SESSION['tiempo']) ) {
+    if(isset($_SESSION['denb']) ) {
 
-        $inactivo = 60;//1min en este caso.
+        $konexioGabe = 60;//1min en este caso.
 
-        $vida_session = time() - $_SESSION['tiempo'];
+        $sesio_bizitza = time() - $_SESSION['denb'];
 
-            if($vida_session > $inactivo)
+            if($sesio_bizitza > $konexioGabe)
             {
 
                 session_unset();
@@ -21,12 +21,12 @@
 
                 exit();
             } else {  
-                $_SESSION['tiempo'] = time();
+                $_SESSION['denb'] = time();
             }
 
 
     } else {
-        $_SESSION['tiempo'] = time();
+        $_SESSION['denb'] = time();
     }?>
 
 <!DOCTYPE html>
@@ -85,6 +85,7 @@
                     echo '<input class="textBoxBakoitza" type="text" id="tlf" value="' . $_SESSION['uneko_tlf'] . '" name="tlf" placeholder="Zure telefonoa sartu (Adb: 654789987)"><br>';
                     echo '<input class="textBoxBakoitza" type="text" id="jaiotze" value="' . $_SESSION['uneko_jaiotze'] . '" name="jaiotze" placeholder="Zure jaiotze data sartu (Adb: 1943-02-02)"><br>';
                     echo '<input class="textBoxBakoitza" type="email" id="email" value="' . $_SESSION['uneko_email'] . '" name="email" placeholder="Zure emaila sartu (Adb: fuentesllano@gmail.com)"><br>';
+                    echo '<input class="textBoxBakoitza" type="text" id="kk" name="kk" value="'. $_SESSION['uneko_kk'] .'" placeholder="Zure kontu korronte zenbakia (Adb: ES1234567891234567891234)"><br>';
                     echo '<input class="textBoxBakoitza" type="password" id="pasahitza" value="' . $_SESSION['uneko_pasahitza'] . '" name="pasahitza" placeholder="Zure pasahitza sartu (6-20 karaktere)"><br>';
                     echo '<input class="textBoxBakoitza" type="password" id="repPasahitza" value="' . $_SESSION['uneko_pasahitza'] . '" name="repPasahitza" placeholder="Zure pasahitza berriro sartu"><br>';
                     echo '<button onclick="datuakKonprobatu(event);" class="botoia">Eguneratu </button>';
