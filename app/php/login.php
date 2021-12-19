@@ -46,6 +46,7 @@
     $_SESSION['uneko_jaiotze'] = $unekoIlara['jaiotzeData'];
     $_SESSION['uneko_email'] = $unekoIlara['email'];
     $_SESSION['uneko_pasahitza'] = $pasahitza;
+    $_SESSION['tiempo'] = time();
 
     // momentuko data baino lehenago diren erreserbak datu basetik ezabatu
     $gaur=getdate();
@@ -53,9 +54,19 @@
     $ordua = $gaur['hours']+2 . ":" . $gaur['minutes'];
     mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` < '$eguna' ; ");
     mysqli_query($conn, "DELETE FROM `elementua` WHERE `data` = '$eguna' AND `ordutegia` < '$ordua' ; ");
+
+    $file = fopen("login.txt", "a");
+    fwrite($file, "ZUZENA --> NOR: $email || NOIZ? ". date(DATE_RFC2822) . PHP_EOL);
+    fclose($file);
+
     header("Location: logeatuta.php");
     } else{
         //echo hash('sha512', $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) . " <br> " .$unekoIlara['pasahitza'];
+
+        $file = fopen("login.txt", "a");
+        fwrite($file, "OKERRA --> NOR: $email || PASSW: $pasahitza || NOIZ? ". date(DATE_RFC2822) . PHP_EOL);
+        fclose($file);
+
         echo"<script language='javascript'>alert('Saio-hasiera baliogabea, saiatu berriz, mesedez.');</script>";
         echo"<meta http-equiv='refresh' content='0; url=../logIn.html' />";
 

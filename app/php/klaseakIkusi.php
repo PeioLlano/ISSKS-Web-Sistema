@@ -1,4 +1,31 @@
 <?php
+
+    session_start();
+
+    if(isset($_SESSION['tiempo']) ) {
+
+        $inactivo = 60;//1min en este caso.
+
+        $vida_session = time() - $_SESSION['tiempo'];
+
+            if($vida_session > $inactivo)
+            {
+
+                session_unset();
+                session_destroy();              
+                //Berbideratu.
+                echo"<script>alert('Jarduera eza dela eta, sesio itxi egin dar. Berriz sesioa hasi.')</script>","<meta http-equiv='refresh' content='0; url=../index.html' />";
+
+
+                exit();
+            } else {  
+                $_SESSION['tiempo'] = time();
+            }
+
+
+    } else {
+        $_SESSION['tiempo'] = time();
+    }
   /*Egileak:
             Julen Fuentes
             Peio Llano
@@ -15,8 +42,7 @@
     die("Database connection failed: " . $conn->connect_error);
   }
 
-    // erregistroan edo sesio hasieran sortu den sesioan sartzeko;
-  session_start();
+
 ?>
 <!DOCTYPE html>
 <html>

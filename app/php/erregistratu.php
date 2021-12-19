@@ -108,6 +108,7 @@
       $_SESSION['uneko_jaiotze'] = $jaiotze;
       $_SESSION['uneko_email'] = $email;
       $_SESSION['uneko_pasahitza'] = $pasahitza;
+      $_SESSION['tiempo'] = time();
       header("Location: logeatuta.php");
       // echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
       // echo "Izena:" . $izena . "<br>";
