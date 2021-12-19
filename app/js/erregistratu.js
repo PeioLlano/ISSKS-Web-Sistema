@@ -16,6 +16,9 @@
      if (!emailaKonprobatu(document.getElementById('email').value)) {
          return;
      }
+     if (!konKorKonprobatu(document.getElementById('kk').value)) {
+         return;
+     }
      if (document.getElementById('pasahitza').value != document.getElementById('repPasahitza').value) {
          alert('Sartutako pasahitzak ez dira berdinak.');
          return;
@@ -93,22 +96,31 @@
  }
 
  function pasahitzaKonprobatu(pPasahitza) {
-    var minNumberofChars = 8;
-    var maxNumberofChars = 20;
-    var regularExpression  = /^(?=.*\d)(?=.*[!@#$%^&*_])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    alert("Hemendik pasa")
-    if(pPasahitza.length < minNumberofChars || pPasahitza.length > maxNumberofChars){
-        alert('Pasahitzek ez dute formatu zuzena betetzen.');
-        return false;
-    }
-    else if(!regularExpression.test(pPasahitza)) {
-        alert('Pasahitzek ez dute formatu zuzena betetzen, gutxienez zenbaki bat eta karaktere berezi bat izan behar du (!@#$%^&*_).');
-        return false;
-    }
-    else {
+     var minNumberofChars = 8;
+     var maxNumberofChars = 20;
+     var regularExpression = /^(?=.*\d)(?=.*[!@#$%^&*_])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+     alert("Hemendik pasa")
+     if (pPasahitza.length < minNumberofChars || pPasahitza.length > maxNumberofChars) {
+         alert('Pasahitzek ez dute formatu zuzena betetzen.');
+         return false;
+     } else if (!regularExpression.test(pPasahitza)) {
+         alert('Pasahitzek ez dute formatu zuzena betetzen, gutxienez zenbaki bat eta karaktere berezi bat izan behar du (!@#$%^&*_).');
+         return false;
+     } else {
          return true;
      }
-}
+
+     function konKorKonprobatu(pKonKor) {
+         var formatua;
+         formatua = /^[A-Z]{2}\d{22}$/;
+         if (formatua.test(pNAN)) {
+             return true;
+         } else {
+             alert('Kontu korrontea EZ da egokia!');
+             return false;
+         }
+     }
+ }
 
  function myFunction() {
      document.getElementById("demo").innerHTML = "Hello World";
