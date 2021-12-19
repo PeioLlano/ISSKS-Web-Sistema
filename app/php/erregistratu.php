@@ -86,9 +86,6 @@
         $randString .= $charset[mt_rand(0, strlen($charset) - 1)];
     }
 
-    $opciones = [
-      'salt' => $randString
-    ];
     $pasahitzaHash = $randString.$pasahitza.$randString;
     $pasahitzaHash = hash("sha512", $pasahitzaHash);
     $query = $conn->prepare("INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`, `salt`) VALUES (?,?,?,?,?,?,?); ");   
@@ -108,7 +105,7 @@
       $_SESSION['uneko_jaiotze'] = $jaiotze;
       $_SESSION['uneko_email'] = $email;
       $_SESSION['uneko_pasahitza'] = $pasahitza;
-      $_SESSION['tiempo'] = time();
+      $_SESSION['denb'] = time();
       header("Location: logeatuta.php");
       // echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
       // echo "Izena:" . $izena . "<br>";

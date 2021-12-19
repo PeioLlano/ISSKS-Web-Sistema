@@ -46,7 +46,7 @@
     $_SESSION['uneko_jaiotze'] = $unekoIlara['jaiotzeData'];
     $_SESSION['uneko_email'] = $unekoIlara['email'];
     $_SESSION['uneko_pasahitza'] = $pasahitza;
-    $_SESSION['tiempo'] = time();
+    $_SESSION['denb'] = time();
 
     // momentuko data baino lehenago diren erreserbak datu basetik ezabatu
     $gaur=getdate();

@@ -5,13 +5,13 @@
     */
     session_start();
 
-    if(isset($_SESSION['tiempo']) ) {
+    if(isset($_SESSION['denb']) ) {
 
-        $inactivo = 60;//1min en este caso.
+        $konexioGabe = 60;//1min en este caso.
 
-        $vida_session = time() - $_SESSION['tiempo'];
+        $sesio_bizitza = time() - $_SESSION['denb'];
 
-            if($vida_session > $inactivo)
+            if($sesio_bizitza > $konexioGabe)
             {
 
                 session_unset();
@@ -21,12 +21,12 @@
 
                 exit();
             } else {  
-                $_SESSION['tiempo'] = time();
+                $_SESSION['denb'] = time();
             }
 
 
     } else {
-        $_SESSION['tiempo'] = time();
+        $_SESSION['denb'] = time();
     }?>
 
 <!DOCTYPE html>
