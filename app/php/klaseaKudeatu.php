@@ -1,17 +1,13 @@
-<?php 
-    /*Egileak:
-            Julen Fuentes
-            Peio Llano
-    */
+<?php
     session_start();
 
-    if(isset($_SESSION['denb']) ) {
+    if(isset($_SESSION['tiempo']) ) {
 
-        $konexioGabe = 60;//1min en este caso.
+        $inactivo = 60;//1min en este caso.
 
-        $sesio_bizitza = time() - $_SESSION['denb'];
+        $vida_session = time() - $_SESSION['tiempo'];
 
-            if($sesio_bizitza > $konexioGabe)
+            if($vida_session > $inactivo)
             {
 
                 session_unset();
@@ -21,12 +17,17 @@
 
                 exit();
             } else {  
-                $_SESSION['denb'] = time();
+                $_SESSION['tiempo'] = time();
             }
 
 
     } else {
-        $_SESSION['denb'] = time();
+        $_SESSION['tiempo'] = time();
+    }
+  /*Egileak:
+            Julen Fuentes
+            Peio Llano
+  */
 
   // datu basera konektatu;
   $hostname = "db";

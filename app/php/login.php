@@ -54,7 +54,7 @@
     $_SESSION['uneko_email'] = $unekoIlara['email'];
     $_SESSION['uneko_kk'] = descifrar($unekoIlara['kontuKorronte'], "ISSKS_Pentest");
     $_SESSION['uneko_pasahitza'] = $pasahitza;
-    $_SESSION['denb'] = time();
+    $_SESSION['tiempo'] = time();
 
     // momentuko data baino lehenago diren erreserbak datu basetik ezabatu
     $gaur=getdate();
