@@ -93,7 +93,7 @@
   // unique datuak ez badaude errepikatuta
   if(!$nanSartuta AND !$tlfSartuta AND !$emailSartuta){
     //datuak sartu
-    $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
+    $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\;:?.>,<!@#$%^&*()-_=+|';
     $randStringLen = 16;
 
     $randString = "";
