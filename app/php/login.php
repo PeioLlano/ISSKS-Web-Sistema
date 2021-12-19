@@ -18,6 +18,13 @@
   // sesioa lehenengo aldiz hasi
   session_start();
 
+  //Función para descifrar el mensaje
+  function descifrar($mensaje, $llave){
+    list($datos_encriptados, $inivec) = explode('::', base64_decode($mensaje), 2); //convert_uudecode() --> otra función para descifrar
+    return openssl_decrypt($datos_encriptados, 'AES-256-CBC', $llave, 0, $inivec); //Método para descifrar la información
+  }
+
+
   // form-etik sartu diren datuak gordetzeko
   $email = $_POST['email'];
   $pasahitza = $_POST['pasahitza'];
@@ -45,6 +52,7 @@
     $_SESSION['uneko_tlf'] = $unekoIlara['telefonoa'];
     $_SESSION['uneko_jaiotze'] = $unekoIlara['jaiotzeData'];
     $_SESSION['uneko_email'] = $unekoIlara['email'];
+    $_SESSION['uneko_kk'] = descifrar($unekoIlara['kontuKorronte'], "ISSKS_Pentest");
     $_SESSION['uneko_pasahitza'] = $pasahitza;
     $_SESSION['denb'] = time();
 

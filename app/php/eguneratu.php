@@ -19,6 +19,19 @@
   // sesioa lehenengo aldiz hasi
   session_start();
 
+  //Función para cifrar el mensaje
+  function cifrar($mensaje, $llave){
+    $inivec = openssl_random_pseudo_bytes(openssl_cipher_iv_length('AES-256-CBC')); //Vector de inicialización para generar el cifrado
+    $men_encriptado = openssl_encrypt($mensaje, "AES-256-CBC", $llave, 0, $inivec);   //Método para cifrar la información
+    return base64_encode($men_encriptado."::".$inivec); //Regresa el mensaje cifrado
+  }
+
+  //Función para descifrar el mensaje
+  function descifrar($mensaje, $llave){
+    list($datos_encriptados, $inivec) = explode('::', base64_decode($mensaje), 2); //convert_uudecode() --> otra función para descifrar
+    return openssl_decrypt($datos_encriptados, 'AES-256-CBC', $llave, 0, $inivec); //Método para descifrar la información
+  }
+
   // form-etik sartu diren datuak gordetzeko
   $izena = htmlspecialchars($_POST['izena']);
   $nan = htmlspecialchars($_POST['nan']);
@@ -89,8 +102,9 @@
     $pasahitzaHash = $randString.$pasahitza.$randString;
     $pasahitzaHash = hash("sha512", $pasahitzaHash);
     //datuak eguneratu
+      $kkZifratuta = cifrar($kk, "ISSKS_Pentest");
       $query = $conn->prepare("UPDATE `bezeroa` SET `izenAbizenak` = ?, `NAN` = ?, `telefonoa` = ?, `jaiotzeData` = ?, `email` = ?, `kontuKorronte` = ?,`pasahitza` = ?, `salt` = ? WHERE `NAN` = ?;  ");
-      $query->bind_param('sssssssss', $izena,$nan,$tlf,$jaiotze,$email,$kk,$pasahitzaHash,$randString, $_SESSION['uneko_NAN']);
+      $query->bind_param('sssssssss', $izena,$nan,$tlf,$jaiotze,$email,$kkZifratuta,$pasahitzaHash,$randString, $_SESSION['uneko_NAN']);
       $query->execute();
       $result = $query->get_result();
       //errorerik dagoen konprobatu

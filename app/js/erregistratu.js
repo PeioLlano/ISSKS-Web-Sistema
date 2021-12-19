@@ -109,15 +109,16 @@
          return true;
      }
 
-     function konKorKonprobatu(pKonKor) {
-         var formatua;
-         formatua = /^[A-Z]{2}\d{22}$/;
-         if (formatua.test(pNAN)) {
-             return true;
-         } else {
-             alert('Kontu korrontea EZ da egokia!');
-             return false;
-         }
+ }
+
+ function konKorKonprobatu(pKonKor) {
+     var formatua;
+     formatua = /^[A-Z]{2}\d{22}$/;
+     if (formatua.test(pKonKor)) {
+         return true;
+     } else {
+         alert('Kontu korrontea EZ da egokia!');
+         return false;
      }
  }
 
