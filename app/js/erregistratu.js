@@ -96,7 +96,6 @@
     var minNumberofChars = 8;
     var maxNumberofChars = 20;
     var regularExpression  = /^(?=.*\d)(?=.*[!@#$%^&*_])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    alert("Hemendik pasa")
     if(pPasahitza.length < minNumberofChars || pPasahitza.length > maxNumberofChars){
         alert('Pasahitzek ez dute formatu zuzena betetzen.');
         return false;

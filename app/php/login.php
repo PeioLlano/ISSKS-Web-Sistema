@@ -64,7 +64,7 @@
         //echo hash('sha512', $unekoIlara['salt'].$pasahitza.$unekoIlara['salt']) . " <br> " .$unekoIlara['pasahitza'];
 
         $file = fopen("login.txt", "a");
-        fwrite($file, "OKERRA --> NOR: $email || PASSW: $pasahitza || NOIZ? ". date(DATE_RFC2822) . PHP_EOL);
+        fwrite($file, "OKERRA --> NOR: $email ||  NOIZ? ". date(DATE_RFC2822) . PHP_EOL);
         fclose($file);
 
         echo"<script language='javascript'>alert('Saio-hasiera baliogabea, saiatu berriz, mesedez.');</script>";

@@ -25,6 +25,7 @@
   $tlf = htmlspecialchars($_POST['tlf']);
   $jaiotze = htmlspecialchars($_POST['jaiotze']);
   $email = htmlspecialchars($_POST['email']);
+  $kk = htmlspecialchars($_POST['kk']);
   $pasahitza = htmlspecialchars($_POST['pasahitza']);
 
   /*if ( isset( $_POST['izena'] ) ) { // retrieve the form data by using the element's name attributes value as key $firstname = $_POST['firstname']; $lastname = $_POST['lastname']; // display the results
@@ -88,8 +89,8 @@
 
     $pasahitzaHash = $randString.$pasahitza.$randString;
     $pasahitzaHash = hash("sha512", $pasahitzaHash);
-    $query = $conn->prepare("INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`, `salt`) VALUES (?,?,?,?,?,?,?); ");   
-    $query->bind_param('sssssss', $izena,$nan,$tlf,$jaiotze,$email,$pasahitzaHash,$randString);
+    $query = $conn->prepare("INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `kontuKorronte`, `pasahitza`, `salt`) VALUES (?,?,?,?,?,?,?,?); ");   
+    $query->bind_param('ssssssss', $izena,$nan,$tlf,$jaiotze,$email,$kk,$pasahitzaHash,$randString);
     $query->execute();
     $result = $query->get_result();
     //errorerik dagoen konprobatu
@@ -104,6 +105,7 @@
       $_SESSION['uneko_tlf'] = $tlf;
       $_SESSION['uneko_jaiotze'] = $jaiotze;
       $_SESSION['uneko_email'] = $email;
+      $_SESSION['uneko_kk'] = $kk;
       $_SESSION['uneko_pasahitza'] = $pasahitza;
       $_SESSION['denb'] = time();
       header("Location: logeatuta.php");

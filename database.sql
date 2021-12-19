@@ -33,6 +33,7 @@ CREATE TABLE `bezeroa` (
   `telefonoa` int(9) NOT NULL,
   `jaiotzeData` date NOT NULL,
   `email` varchar(30) NOT NULL,
+  `kontuKorronte` varchar(30) NOT NULL,
   `pasahitza` varchar(255) NOT NULL,
   `salt` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -41,14 +42,14 @@ CREATE TABLE `bezeroa` (
 -- Volcado de datos para la tabla `bezeroa`
 --
 
-INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `pasahitza`, `salt`) VALUES
-('Joselu Fernandez', '11223344B', 623623623, '2001-12-14', 'joselu@gmail.com', 'joselu',' '),
-('Peio Llano', '12345678Z', 444555666, '2001-02-11', 'peio@gmail.com', 'pepelu',' '),
-('Miren Salazar', '34456212G', 655688677, '1999-12-18', 'mirensala@hotmail.com', 'mirensal99',' '),
-('Jokin Zorroza', '47747474A', 617617617, '1989-08-12', 'zorroz@gmail.com', 'zorro7',' '),
-('Naiara Mendibil', '67543454K', 663356789, '1972-02-05', 'naiara.mendibil@gmail.com', 'naiaramendibil720205',' '),
-('Julen Fuentes', '87654321X', 987654321, '2002-06-14', 'julen@gmail.com', 'julenf',' '),
-('Jon Basterretxea', '89987667Y', 987678876, '1991-02-18', 'jonbas@gmail.com', 'jonbas',' ');
+INSERT INTO `bezeroa` (`izenAbizenak`, `NAN`, `telefonoa`, `jaiotzeData`, `email`, `kontuKorronte`,`pasahitza`, `salt`) VALUES
+('Joselu Fernandez', '11223344B', 623623623, '2001-12-14', 'joselu@gmail.com', ' ' , 'joselu',' '),
+('Peio Llano', '12345678Z', 444555666, '2001-02-11', 'peio@gmail.com',' ' , 'pepelu',' '),
+('Miren Salazar', '34456212G', 655688677, '1999-12-18', 'mirensala@hotmail.com',' ' , 'mirensal99',' '),
+('Jokin Zorroza', '47747474A', 617617617, '1989-08-12', 'zorroz@gmail.com',' ' , 'zorro7',' '),
+('Naiara Mendibil', '67543454K', 663356789, '1972-02-05', 'naiara.mendibil@gmail.com',' ' , 'naiaramendibil720205',' '),
+('Julen Fuentes', '87654321X', 987654321, '2002-06-14', 'julen@gmail.com',' ' , 'julenf',' '),
+('Jon Basterretxea', '89987667Y', 987678876, '1991-02-18', 'jonbas@gmail.com',' ' , 'jonbas',' ');
 
 --
 -- Índices para tablas volcadas

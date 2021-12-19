@@ -25,6 +25,7 @@
   $tlf = htmlspecialchars($_POST['tlf']);
   $jaiotze = htmlspecialchars($_POST['jaiotze']);
   $email = htmlspecialchars($_POST['email']);
+  $kk = htmlspecialchars($_POST['kk']);
   $pasahitza = htmlspecialchars($_POST['pasahitza']);
 
   /*if ( isset( $_POST['izena'] ) ) { // retrieve the form data by using the element's name attributes value as key $firstname = $_POST['firstname']; $lastname = $_POST['lastname']; // display the results
@@ -88,8 +89,8 @@
     $pasahitzaHash = $randString.$pasahitza.$randString;
     $pasahitzaHash = hash("sha512", $pasahitzaHash);
     //datuak eguneratu
-      $query = $conn->prepare("UPDATE `bezeroa` SET `izenAbizenak` = ?, `NAN` = ?, `telefonoa` = ?, `jaiotzeData` = ?, `email` = ?, `pasahitza` = ?, `salt` = ? WHERE `NAN` = ?;  ");
-      $query->bind_param('ssssssss', $izena,$nan,$tlf,$jaiotze,$email,$pasahitzaHash,$randString, $_SESSION['uneko_NAN']);
+      $query = $conn->prepare("UPDATE `bezeroa` SET `izenAbizenak` = ?, `NAN` = ?, `telefonoa` = ?, `jaiotzeData` = ?, `email` = ?, `kontuKorronte` = ?,`pasahitza` = ?, `salt` = ? WHERE `NAN` = ?;  ");
+      $query->bind_param('sssssssss', $izena,$nan,$tlf,$jaiotze,$email,$kk,$pasahitzaHash,$randString, $_SESSION['uneko_NAN']);
       $query->execute();
       $result = $query->get_result();
       //errorerik dagoen konprobatu
@@ -112,6 +113,7 @@
       $_SESSION['uneko_tlf'] = $tlf;
       $_SESSION['uneko_jaiotze'] = $jaiotze;
       $_SESSION['uneko_email'] = $email;
+      $_SESSION['uneko_kk'] = $kk;
       $_SESSION['uneko_pasahitza'] = $pasahitza;
       header("Location: logeatuta.php");
       // echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error. "<br>";
