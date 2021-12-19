@@ -108,7 +108,6 @@
      } else {
          return true;
      }
-
  }
 
  function konKorKonprobatu(pKonKor) {
@@ -121,6 +120,7 @@
          return false;
      }
  }
+
 
  function myFunction() {
      document.getElementById("demo").innerHTML = "Hello World";
