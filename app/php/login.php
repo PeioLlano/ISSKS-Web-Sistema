@@ -45,6 +45,7 @@
     $_SESSION['uneko_tlf'] = $unekoIlara['telefonoa'];
     $_SESSION['uneko_jaiotze'] = $unekoIlara['jaiotzeData'];
     $_SESSION['uneko_email'] = $unekoIlara['email'];
+    $_SESSION['uneko_kk'] = $unekoIlara['kontuKorronte'];
     $_SESSION['uneko_pasahitza'] = $pasahitza;
     $_SESSION['denb'] = time();
 
