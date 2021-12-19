@@ -93,13 +93,22 @@
  }
 
  function pasahitzaKonprobatu(pPasahitza) {
-     if (pPasahitza.length <= 5 || pPasahitza.length > 20) {
-         alert('Pasahitzek ez dute formatu zuzena betetzen.');
-         return false;
-     } else {
+    var minNumberofChars = 8;
+    var maxNumberofChars = 20;
+    var regularExpression  = /^(?=.*\d)(?=.*[!@#$%^&*_])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    alert("Hemendik pasa")
+    if(pPasahitza.length < minNumberofChars || pPasahitza.length > maxNumberofChars){
+        alert('Pasahitzek ez dute formatu zuzena betetzen.');
+        return false;
+    }
+    else if(!regularExpression.test(pPasahitza)) {
+        alert('Pasahitzek ez dute formatu zuzena betetzen, gutxienez zenbaki bat eta karaktere berezi bat izan behar du (!@#$%^&*_).');
+        return false;
+    }
+    else {
          return true;
      }
- }
+}
 
  function myFunction() {
      document.getElementById("demo").innerHTML = "Hello World";
