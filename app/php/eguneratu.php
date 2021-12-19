@@ -88,10 +88,13 @@
     $pasahitzaHash = $randString.$pasahitza.$randString;
     $pasahitzaHash = hash("sha512", $pasahitzaHash);
     //datuak eguneratu
-      $query = mysqli_query($conn, "UPDATE `bezeroa` SET `izenAbizenak` = '$izena', `NAN` = '$nan', `telefonoa` = '$tlf', `jaiotzeData` = '$jaiotze', `email` = '$email', `pasahitza` = '$pasahitzaHash', `salt` = '$randString' WHERE `bezeroa`.`NAN` = '". $_SESSION['uneko_NAN'] ."';  ");
-    //errorerik dagoen konprobatu
-    if(!$query){
-      echo"Errore bat egon da. Errorea: " . $query . "<br>" . $conn->error;
+      $query = $conn->prepare("UPDATE `bezeroa` SET `izenAbizenak` = ?, `NAN` = ?, `telefonoa` = ?, `jaiotzeData` = ?, `email` = ?, `pasahitza` = ?, `salt` = ? WHERE `NAN` = ?;  ");
+      $query->bind_param('ssssssss', $izena,$nan,$tlf,$jaiotze,$email,$pasahitzaHash,$randString, $_SESSION['uneko_NAN']);
+      $query->execute();
+      $result = $query->get_result();
+      //errorerik dagoen konprobatu
+    if($result != ""){
+      echo"Errore bat egon da. Errorea: " . $result . "<br>" . $conn->error;
     }
     // $query = $conn->prepare("UPDATE `bezeroa` SET `izenAbizenak` = ?, `NAN` = ?, `telefonoa` = ?, `jaiotzeData` = ?, `email` = ?, `pasahitza` = ?; `salt` = ?");   
     // $query->bind_param('ssissss', $izena,$nan,$tlf,$jaiotze,$email,$pasahitzaHash,$randString);

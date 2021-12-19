@@ -34,7 +34,7 @@
 }
 
   // form-etik hautatu den erreserba gordetzeko
-  $erreserba = $_POST['erreserba']; //Aldatu behar den erreserba
+  $erreserba = htmlspecialchars($_POST['erreserba']); //Aldatu behar den erreserba
 
   // textutik datuak ateratzeko
   $kirolZaharra= strtok($erreserba, ',');
@@ -43,9 +43,9 @@
 
 
   //Sartu behar diren balioak
-  $kirola = $_POST['kirola'];
-  $data = $_POST['data'];
-  $ordutegia = $_POST['ordutegia'];
+  $kirola = htmlspecialchars($_POST['kirola']);
+  $data = htmlspecialchars($_POST['data']);
+  $ordutegia = htmlspecialchars($_POST['ordutegia']);
   
   // erreserba hutsa ez bada
   if($erreserba != ""){
